@@ -1,0 +1,431 @@
+body {
+  overflow: visible !important;
+  padding: 0px !important;
+}
+.dark body {
+  background-color: black;
+}
+.zoom-enter .content {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.zoom-enter-active .content {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.zoom-exit .content {
+  opacity: 1;
+}
+
+.zoom-exit-active .content {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.swiper {
+  width: 100% !important;
+  z-index: 999;
+}
+
+/* css giao diện daskmode */
+/* css phan giao dien dark mode  */
+.dark .css-1k0dwd6-MuiFormControlLabel-root .MuiFormControlLabel-label {
+  color: #fff !important;
+}
+
+/* .dark .css-19wsa2m-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #fff !important;
+} */
+.dark .css-19wsa2m-MuiButtonBase-root-MuiTab-root {
+  color: #fff !important;
+}
+
+.dark .css-6lewhu-MuiRating-icon {
+  color: #cecece !important;
+}
+.dark .cuisineListProvince input {
+  color: #fff !important;
+}
+
+.dark
+  .css-1geov7k-MuiInputBase-root-MuiOutlinedInput-root.Mui-focused
+  .MuiOutlinedInput-notchedOutline {
+  border-color: #fff !important;
+}
+
+.dark .css-g6gxrt-MuiSvgIcon-root {
+  fill: #c1c1c1;
+}
+
+.dark .css-o1vtua-MuiButtonBase-root-MuiPaginationItem-root.Mui-disabled {
+  border: 1px solid #fff !important;
+}
+.dark .css-o1vtua-MuiButtonBase-root-MuiPaginationItem-root {
+  background-color: #fff;
+}
+
+.dark .css-l65soe-MuiSvgIcon-root-MuiPaginationItem-icon {
+  fill: #878787 !important;
+}
+
+.dark .itineraryListProvince input {
+  color: #fff !important;
+}
+
+.dark .css-1jk99ih-MuiInputBase-input-MuiOutlinedInput-input.Mui-disabled {
+  opacity: 1;
+  -webkit-text-fill-color: rgba(255, 255, 255, 255);
+}
+
+/* custom input password eye  */
+.css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input[type="password"] {
+  padding-right: 70px !important;
+}
+
+/* loại bỏ 2 biểu tượng showPassword trên trình duyệt Egde  */
+input[type="password"]::-ms-reveal {
+  display: none;
+}
+
+.signUp_google-fb::after {
+  content: "Hoặc";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 0px 12px;
+}
+
+/* ccs cho input ngày nhận trả phòng */
+.css-10o2lyd-MuiStack-root {
+  padding-top: 0px !important;
+  overflow: visible !important;
+}
+
+.passenger_rom::after {
+  content: "Số khách & phòng";
+  position: absolute;
+  background-color: #fff;
+  width: 35%;
+  font-size: 12px;
+  color: rgb(91, 91, 91);
+  text-align: center;
+  top: -10px;
+  left: 10px;
+}
+
+.navTravel::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+}
+
+.line-clamp-2 {
+  height: 50px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* css cho editor quill  */
+.ql-editor {
+  height: 70vh !important;
+  overflow-y: auto;
+}
+
+/* Ẩn thanh cuộn trên Chrome, Safari và các trình duyệt dựa trên WebKit */
+.ql-editor::-webkit-scrollbar,
+.select-options::-webkit-scrollbar,
+.scrollY::-webkit-scrollbar,
+.uiImagesUpload::-webkit-scrollbar,
+.info_hotel_details::-webkit-scrollbar,
+.detailFood::-webkit-scrollbar,
+.chatsConversation::-webkit-scrollbar,
+.cuisineIntroduce::-webkit-scrollbar,
+.search::-webkit-scrollbar,
+.reviewRestaurant::-webkit-scrollbar,
+.reviewModal::-webkit-scrollbar,
+.signUp::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+.chats {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.chats::-webkit-scrollbar {
+  display: none;
+}
+
+.ql-editor {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.ql-editor img {
+  width: 400px;
+  height: 200px;
+  border-radius: 8px;
+}
+
+.css-12ld6eb-MuiTabs-indicator {
+  background: #ff5b00 !important;
+}
+
+.ql-align-left {
+  text-align: left;
+}
+
+.ql-align-center {
+  text-align: center !important;
+}
+
+.ql-align-right {
+  text-align: right;
+}
+
+.ql-align-justify {
+  text-align: justify;
+}
+
+/* css cho phần chi tiết ẩm thực theo tỉnh thành  */
+.wrapper_cuisine-detail h1,
+.travel_itinerary h1,
+.addTravelItinerary h1 {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.wrapper_cuisine-detail p,
+.newsDetail p,
+.travel_itinerary p,
+.addTravelItinerary p {
+  text-align: justify;
+  line-height: 2.5;
+}
+
+.wrapper_cuisine-detail h2,
+.newsDetail h2,
+.travel_itinerary h2,
+.addTravelItinerary h2 {
+  text-align: justify;
+  padding: 4px 0px;
+  margin-top: 8px;
+  line-height: 1.7;
+  font-size: 20px;
+}
+
+.wrapper_cuisine-detail strong,
+.travel_itinerary strong,
+.newsDetail strong,
+.addTravelItinerary strong {
+  padding: 4px 0px;
+}
+
+.wrapper_cuisine-detail img,
+.travel_itinerary img,
+.addTravelItinerary img {
+  width: 90% !important;
+  height: 400px;
+  display: block;
+  margin: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  padding: 8px 0px;
+}
+
+.newsDetail img {
+  width: 100% !important;
+  display: block;
+  margin: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  padding: 8px 0px;
+}
+
+.wrapper_cuisine-detail li {
+  padding-left: 32px;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+.wrapper_cuisine-detail em,
+.newsDetail em {
+  text-align: center !important;
+  display: block;
+}
+
+.swiper-pagination {
+  bottom: 0px !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: #ff5b00 !important;
+}
+
+.css-19kzrtu {
+  padding: 24px 0px !important;
+}
+
+.cuisineListProvince .mb-4,
+.itineraryListProvince .mb-4 {
+  margin: 0 !important;
+}
+
+/* css cho phần lịch trình chi tiết  */
+.travel_itinerary h2,
+.addTravelItinerary h2 {
+  color: #ff5b00;
+  font-weight: bold;
+}
+
+.travel_itinerary h3,
+.addTravelItinerary h3 {
+  font-weight: bold;
+  margin-left: 24px;
+}
+
+.travel_itinerary p,
+li {
+  margin-left: 64px;
+  line-height: 2.3;
+}
+
+.addTravelItinerary p,
+li {
+  margin-left: 64px;
+}
+
+.css-wjh20t-MuiPagination-ul li {
+  margin-left: 0px !important;
+}
+
+/* css cho map popup */
+.mapboxgl-popup-content {
+  width: 300px !important;
+}
+
+.mapboxgl-popup-close-button {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+
+/* css cho phần map directions control */
+.mapboxgl-ctrl-directions {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.mapbox-directions-instructions {
+  display: none;
+}
+
+/* css cho trang Destination */
+.destination_province::before {
+  content: "";
+  border-top: 1px solid #ff5b00;
+  position: absolute;
+  z-index: 20;
+  width: 100%;
+  left: 0;
+  top: 50%;
+}
+
+/* chat bot css  */
+
+.greet h1,
+.chatbotAI {
+  background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.topSearch {
+  background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* responsive mobile  */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.25s ease-out forwards;
+}
+
+.animate-slideOut {
+  animation: slideOut 0.25s ease-out forwards;
+}
+
+@media screen and (max-width: 640px) {
+  .travel_itinerary p,
+  li {
+    margin-left: 0px;
+    line-height: 2.5;
+  }
+
+  .travel_itinerary img {
+    width: 100% !important;
+  }
+
+  .travel_itinerary h3 {
+    font-weight: bold;
+    margin-left: 0px;
+  }
+  .mapboxgl-popup-content {
+    width: 200px !important;
+  }
+}
+
+/* responsive tablet  */
+@media screen and (max-width: 1024px) {
+  .travel_itinerary p,
+  li {
+    margin-left: 18px;
+    line-height: 2.5;
+  }
+
+  .travel_itinerary img {
+    width: 100% !important;
+  }
+
+  .travel_itinerary h3 {
+    font-weight: bold;
+    margin-left: 0px;
+  }
+}

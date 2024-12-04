@@ -1,0 +1,278 @@
+[
+  {
+    "id": 1,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  },
+  {
+    "id": 2,
+    "name": "Khách sạn Sofitel Sài Gòn",
+    "category": "Khách sạn",
+    "description": "Khách sạn cao cấp này cách Nhà thờ Đức bà Sài Gòn 9 phút đi bộ, sông Sài Gòn 11 phút đi bộ và Dinh Độc Lập 2 km.",
+    "rating": 4.6,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "17 Đ. Lê Duẩn, Bến Nghé, Ward, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.784090649640616,
+        "longitude": 106.70256644465564
+      }
+    },
+    "price_per_night": "5419386 VND",
+    "amenities": ["Wi-Fi miễn phí", "Hồ bơi", "Nhà hàng", "Spa"]
+  },
+  {
+    "id": 3,
+    "name": "Công viên văn hóa Suối Tiên",
+    "category": "Điểm du lịch",
+    "description": "Công viên giải trí có nhiều tàu lượn và hoạt động vui chơi dưới nước nằm giữa các công trình Phật Giáo nổi bật.",
+    "rating": 4.3,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "120 Song Hành Xa Lộ Hà Nội, Phường Tân Phú, Thủ Đức, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.866197284600599,
+        "longitude": 106.80316529839902
+      }
+    },
+    "opening_hours": {
+      "open": "08:00",
+      "close": "17:00"
+    },
+    "entry_fee": "180000 VND",
+    "activities": ["Tham quan", "Chụp ảnh", "Vui chơi"]
+  },
+  {
+    "id": 4,
+    "name": "Haidilao Huoguo 海底捞火锅 Vincom Phan Văn Trị",
+    "category": "Nhà hàng",
+    "description": "Nhà hàng nổi tiếng.",
+    "rating": 4.9,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "TTTM Vincom, 12 Đ. Phan Văn Trị, Phường 7, Gò Vấp, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.827127130920116,
+        "longitude": 106.68928112835734
+      }
+    },
+    "menu": [],
+    "opening_hours": {
+      "open": "10:00",
+      "close": "01:30"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Symbol Coffee & Tea",
+    "category": "Quán cà phê",
+    "description": "Chuỗi cà phê nổi tiếng với không gian thoải mái và các món uống đa dạng.",
+    "rating": 4.3,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "304 Đ. Nguyễn Thái Sơn, Phường 4, Gò Vấp, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.822504137499429,
+        "longitude": 106.68533200902354
+      }
+    },
+    "menu": [],
+    "opening_hours": {
+      "open": "00:00",
+      "close": "24:00"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  },
+  {
+    "id": 7,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  },
+  {
+    "id": 8,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  },
+  {
+    "id": 9,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, TP Hồ Chí Minh",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  },
+  {
+    "id": 10,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, Hà Giang",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  },
+  {
+    "id": 11,
+    "name": "Nhà thờ Đức Bà Sài Gòn",
+    "category": "Điểm du lịch",
+    "description": "Nhà thờ chính tòa Đức Bà Sài Gòn (hay Vương cung thánh đường chính tòa Đức Mẹ Vô nhiễm Nguyên tội, tiếng Anh: Immaculate Conception Cathedral Basilica, tiếng Pháp: Cathédrale Notre-Dame de Saïgon), thường được gọi tắt là Nhà thờ Đức Bà, là nhà thờ chính tòa của Tổng giáo phận Sài Gòn.[2]Nhà thờ không chỉ là biểu tượng của Công giáo ở Việt Nam, mà còn là một trong những công trình kiến trúc độc đáo của Thành phố Hồ Chí Minh và điểm đến nổi tiếng với du khách.[3] Tên gọi ban đầu của nhà thờ là Nhà thờ Sài Gòn (tiếng Pháp: l'eglise de Saïgon), tên gọi Nhà thờ Đức Bà bắt đầu được sử dụng từ năm 1959 bằng việc đặt Tượng Đức Bà Hòa Bình trước khuôn viên.Nhà thờ là nơi tấn phong nhiều giám mục, đón tiếp các đại diện Tòa thánh Rôma, nhậm chức của các Tổng giám mục và cũng là nơi thụ phong của hàng ngàn linh mục.",
+    "type": "",
+    "rating": 4.4,
+    "rating_count": 1000,
+    "images": [
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg",
+      "https://flowbite.com/docs/images/examples/image-1@2x.jpg"
+    ],
+    "location": {
+      "address": "01 Công xã Paris, Bến Nghé, Quận 1, Hà Nội",
+      "coordinates": {
+        "latitude": 10.779804611667297,
+        "longitude": 106.69901563851137
+      }
+    },
+    "opening_hours": {
+      "open": "",
+      "close": ""
+    },
+    "entry_fee": "Miễn phí",
+    "activities": ["Tham quan", "Chụp ảnh", "Cầu nguyện"]
+  }
+]
