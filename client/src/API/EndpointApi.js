@@ -1,5 +1,5 @@
 const url =
-  "http://ec2-54-252-15-144.ap-southeast-2.compute.amazonaws.com:3333";
+  "https://khamphavietnam.online";
 export const EndpointAPI = {
   apiCrateUser: `${url}/api/users`,
   apiLogin: `${url}/api/login`,
