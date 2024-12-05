@@ -30,7 +30,12 @@ apiLoginAccount.post("/api/login", async (req, res) => {
       user.role,
       "30d"
     );
-    res.cookie("accessToken", accessToken);
+    res.cookie("accessToken", accessToken, {
+      httpOnly: true, 
+      secure: true,
+      sameSite: "None",
+      maxAge: 365 * 24 * 60 * 60 * 1000,
+    });
     const { password: userPassword, ...dataUser } = user.toObject();
     return res.status(200).json({
       status: "Success",
