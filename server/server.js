@@ -29,8 +29,6 @@ app.use(
   cors({
     origin: "http://3.107.183.6:3000",
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['signal'],
   })
 );
 await connectDB();
