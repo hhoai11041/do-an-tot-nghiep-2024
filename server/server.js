@@ -30,7 +30,7 @@ app.use(
     origin: "http://3.107.183.6:3000",
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'signal'],
+    allowedHeaders: ['Content-Type', 'token', 'signal'],
   })
 );
 await connectDB();
