@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "3.107.183.6:3000",
+    origin: "http://3.107.183.6:3000/",
     credentials: true,
   })
 );
