@@ -188,12 +188,17 @@ const MapLocation = () => {
     if (mapRef.current) {
       const map = mapRef.current.getMap();
 
-      const existingDirections = map._controls.find(
+    //   const existingDirections = map._controls.find(
+    //     (control) => control.constructor.name === "MapboxDirections"
+    //   );
+    //   if (existingDirections) {
+    //     map.removeControl(existingDirections);
+    //   }
+    // }
+      const existingDirections = map._controls.filter(
         (control) => control.constructor.name === "MapboxDirections"
       );
-      if (existingDirections) {
-        map.removeControl(existingDirections);
-      }
+      existingDirections.forEach((control) => map.removeControl(control));
     }
 
     // Di chuyển focus về phần tử nút đóng
@@ -303,17 +308,6 @@ const MapLocation = () => {
     );
   });
 
-useEffect(() => {
-  if (!selectedMarker && mapRef.current) {
-    const map = mapRef.current.getMap();
-
-    // Xóa mọi control `MapboxDirections` nếu không còn marker được chọn
-    const existingDirections = map._controls.filter(
-      (control) => control.constructor.name === "MapboxDirections"
-    );
-    existingDirections.forEach((control) => map.removeControl(control));
-  }
-}, [selectedMarker]);
 
   return (
     <motion.div
