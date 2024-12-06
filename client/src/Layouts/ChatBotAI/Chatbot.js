@@ -38,6 +38,7 @@ const listSuggest = [
 
 const Chatbot = () => {
   const accessToken = Cookies.get("accessToken");
+  console.log(accessToken)
   const [dataUser, setDataUser] = useState();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -48,7 +49,6 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
   useEffect(() => {
     if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-    console.log(accessToken)
   }, [accessToken]);
 
   const handleSubmitChat = async (e) => {
