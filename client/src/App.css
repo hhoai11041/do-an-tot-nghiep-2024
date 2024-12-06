@@ -323,6 +323,11 @@ li {
   font-size: 20px;
 }
 
+.mapboxgl-popup-close-button[aria-hidden="true"] {
+  aria-hidden: false;
+  pointer-events: auto;
+}
+
 /* css cho phần map directions control */
 .mapboxgl-ctrl-directions {
   background-color: #fff;
