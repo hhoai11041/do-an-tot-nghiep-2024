@@ -2,6 +2,8 @@ import axios from "axios";
 import { EndpointAPI } from "./EndpointApi";
 import { announce } from "../Components/ModalAnnounce";
 
+axios.defaults.withCredentials = true;
+
 export const postApi = {
   createAccount: async (
     username,
