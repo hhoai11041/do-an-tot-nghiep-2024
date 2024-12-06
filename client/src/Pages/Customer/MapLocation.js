@@ -194,14 +194,7 @@ const MapLocation = () => {
       if (existingDirections) {
         map.removeControl(existingDirections);
       }
-    }
-
-    // Giải phóng focus của phần tử popup
-      const popupCloseButton = document.querySelector('.mapboxgl-popup-close-button');
-      if (popupCloseButton) {
-        popupCloseButton.blur();  // Loại bỏ focus khỏi nút đóng
-      }
-      
+    }      
   };
 
   const filteredPlaces = useMemo(() => {
@@ -445,12 +438,20 @@ const MapLocation = () => {
               <Popup
                 latitude={selectedMarker.location.coordinates[1]}
                 longitude={selectedMarker.location.coordinates[0]}
-                onClose={handleClosePopup}
+                // onClose={handleClosePopup}
                 closeOnClick={false}
                 anchor="top"
                 className="mt-3"
               >
                 <div className="mt-[10px] dark:text-black">  
+
+                  <button
+                    onClick={handleClosePopup}
+                    className="text-red-500 font-bold px-2 py-1 rounded hover:bg-gray-200"
+                  >
+                    X
+                  </button>
+                  
                   <h2 className="screenLarge:text-lg desktop:text-lg laptop:text-lg font-semibold text-center">
                     {selectedMarker?.name || "No name available"}
                   </h2>
