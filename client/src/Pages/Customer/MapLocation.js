@@ -188,24 +188,14 @@ const MapLocation = () => {
     if (mapRef.current) {
       const map = mapRef.current.getMap();
 
-    //   const existingDirections = map._controls.find(
-    //     (control) => control.constructor.name === "MapboxDirections"
-    //   );
-    //   if (existingDirections) {
-    //     map.removeControl(existingDirections);
-    //   }
-    // }
-      const existingDirections = map._controls.filter(
+      const existingDirections = map._controls.find(
         (control) => control.constructor.name === "MapboxDirections"
       );
-      existingDirections.forEach((control) => map.removeControl(control));
+      if (existingDirections) {
+        map.removeControl(existingDirections);
+      }
     }
-
-    // Di chuyển focus về phần tử nút đóng
-  const closeButton = document.getElementById("close-popup-button");
-  if (closeButton) {
-    closeButton.focus();
-  }
+      
   };
 
   const filteredPlaces = useMemo(() => {
@@ -453,18 +443,8 @@ const MapLocation = () => {
                 closeOnClick={false}
                 anchor="top"
                 className="mt-3"
-                closeButton={false}
-                inert={true}
               >
-                <div className="mt-[10px] dark:text-black">
-                  <button
-                    id="close-popup-button"
-                    onClick={handleClosePopup}
-                    className="p-2 bg-red-500 text-white"
-                  >
-                    X
-                  </button>
-                      
+                <div className="mt-[10px] dark:text-black">  
                   <h2 className="screenLarge:text-lg desktop:text-lg laptop:text-lg font-semibold text-center">
                     {selectedMarker?.name || "No name available"}
                   </h2>
