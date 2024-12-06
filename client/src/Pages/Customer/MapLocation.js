@@ -303,6 +303,18 @@ const MapLocation = () => {
     );
   });
 
+useEffect(() => {
+  if (!selectedMarker && mapRef.current) {
+    const map = mapRef.current.getMap();
+
+    // Xóa mọi control `MapboxDirections` nếu không còn marker được chọn
+    const existingDirections = map._controls.filter(
+      (control) => control.constructor.name === "MapboxDirections"
+    );
+    existingDirections.forEach((control) => map.removeControl(control));
+  }
+}, [selectedMarker]);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
