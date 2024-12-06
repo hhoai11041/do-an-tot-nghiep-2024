@@ -19,6 +19,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { announce } from "./ModalAnnounce";
 import ModalAdmin from "../Configs/ModalAdmin";
 import ProfileAccount from "./ProfileAccount";
+import { postApi } from "../API/PostApi";
 
 const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const [modalSignIn, setModalSignIn] = useState(false);
@@ -34,7 +35,7 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    Cookies.remove("accessToken");
+    postApi.logoutAccount();
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
       "Thành công",
