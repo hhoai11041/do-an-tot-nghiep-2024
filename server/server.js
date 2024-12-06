@@ -8,6 +8,7 @@ import fs from "fs";
 import apiUser from "./API/User.js";
 import connectDB from "./connectDB.js";
 import apiLoginAccount from "./API/login.js";
+import apiLogoutAccount from "./API/logout.js";
 import apiCuisine from "./API/cuisine.js";
 import apiItinerary from "./API/travelItinerary.js";
 import news from "./API/news.js";
@@ -43,6 +44,7 @@ await connectDB();
 
 app.use("/", apiUser);
 app.use("/", apiLoginAccount);
+app.use("/", apiLogoutAccount);
 app.use("/", apiCuisine);
 app.use("/", apiItinerary);
 app.use("/", news);
