@@ -61,6 +61,31 @@ export const postApi = {
     }
   },
 
+  logoutAccount: async (setResetData, resetData, setRenderHeader) => {
+  try {
+    
+    const response = await axios.post(EndpointAPI.apiLogout, {}, { withCredentials: true });
+
+    if (response.data.message === "Logged out successfully") {
+      setResetData(prev => !prev);  
+      setOpenModal(false);          
+      setRenderHeader(false);       
+
+      announce.showSuccessModal(
+        "Thành công",
+        "Bạn đã đăng xuất thành công"
+      );
+
+    }
+  } catch (error) {
+    console.error('Logout error:', error);
+    announce.showErrorModal(
+      "Thất bại",
+      "Đã xảy ra lỗi khi đăng xuất, vui lòng thử lại!"
+    );
+  }
+},
+
   // tạo mới ăn mới
   createNewFood: async (
     accessToken,
