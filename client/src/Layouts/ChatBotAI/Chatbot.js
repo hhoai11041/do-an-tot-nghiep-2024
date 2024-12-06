@@ -48,6 +48,7 @@ const Chatbot = () => {
   const messagesEndRef = useRef(null);
   useEffect(() => {
     if (accessToken) getApi.getApiUser(accessToken, setDataUser);
+    console.log(accessToken)
   }, [accessToken]);
 
   const handleSubmitChat = async (e) => {
