@@ -53,19 +53,17 @@ export const getApi = {
   },
 
   // lấy thông tin user theo token
-  getApiUser: async (accessToken, setDataUser) => {
+  getApiUser: async (setDataUser) => {
     try {
       if (abortController) {
         abortController.abort();
       }
       abortController = new AbortController();
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-        signal: abortController.signal,
-      };
+     
+      
       const response = await axios.get(EndpointAPI.apiUser, {
-        headers,
+        withCredentials: true,
+        signal: abortController.signal,
       });
       setDataUser(response.data.data);
     } catch (error) {
