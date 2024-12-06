@@ -31,7 +31,6 @@ const Destination = () => {
 
   useEffect(() => {
     fetchDestinations();
-    console.log(selectedProvince);
   }, [currentPage, selectedProvince]);
 
   const handlePageChange = (event, value) => {
