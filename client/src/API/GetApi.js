@@ -54,11 +54,8 @@ export const getApi = {
 
   // lấy thông tin user theo token
   getApiUser: async (setDataUser) => {
+    const abortController = new AbortController();
     try {
-      if (abortController) {
-        abortController.abort();
-      }
-      abortController = new AbortController();
      
       const response = await axios.get(EndpointAPI.apiUser, {
         withCredentials: true,
