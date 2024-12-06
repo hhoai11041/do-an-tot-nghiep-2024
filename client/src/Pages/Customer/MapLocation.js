@@ -195,6 +195,12 @@ const MapLocation = () => {
         map.removeControl(existingDirections);
       }
     }
+
+    // Giải phóng focus của phần tử popup
+      const popupCloseButton = document.querySelector('.mapboxgl-popup-close-button');
+      if (popupCloseButton) {
+        popupCloseButton.blur();  // Loại bỏ focus khỏi nút đóng
+      }
       
   };
 
@@ -297,15 +303,6 @@ const MapLocation = () => {
       </Marker>
     );
   });
-
-
-//
-useEffect(() => {
-  if (mapRef.current) {
-    const map = mapRef.current.getMap();
-    console.log('Map loaded:', map);
-  }
-}, [mapRef]);
 
 
   return (
