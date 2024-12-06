@@ -195,6 +195,12 @@ const MapLocation = () => {
         map.removeControl(existingDirections);
       }
     }
+
+    // Di chuyển focus về phần tử nút đóng
+  const closeButton = document.getElementById("close-popup-button");
+  if (closeButton) {
+    closeButton.focus();
+  }
   };
 
   const filteredPlaces = useMemo(() => {
@@ -441,9 +447,18 @@ const MapLocation = () => {
                 closeOnClick={false}
                 anchor="top"
                 className="mt-3"
+                closeButton={false}
                 inert={true}
               >
                 <div className="mt-[10px] dark:text-black">
+                  <button
+                    id="close-popup-button"
+                    onClick={handleClosePopup}
+                    className="p-2 bg-red-500 text-white"
+                  >
+                    Đóng Popup
+                  </button>
+                      
                   <h2 className="screenLarge:text-lg desktop:text-lg laptop:text-lg font-semibold text-center">
                     {selectedMarker?.name || "No name available"}
                   </h2>
