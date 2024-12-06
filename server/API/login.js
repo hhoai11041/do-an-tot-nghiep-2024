@@ -31,7 +31,7 @@ apiLoginAccount.post("/api/login", async (req, res) => {
       "30d"
     );
     res.cookie("accessToken", accessToken, {
-      httpOnly: true, 
+      httpOnly: false, 
       secure: true,
       sameSite: "None",
       maxAge: 365 * 24 * 60 * 60 * 1000,
