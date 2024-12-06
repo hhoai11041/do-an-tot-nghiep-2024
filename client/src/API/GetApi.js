@@ -43,7 +43,7 @@ export const getApi = {
       await new Promise((resolve) => setTimeout(resolve, 500));
       const response = await axios.get(EndpointAPI.apiAllUser, {
         headers,
-      });
+      }, { withCredentials: true, });
       setDataUser(response.data.data);
     } catch (error) {
       console.log(error);
