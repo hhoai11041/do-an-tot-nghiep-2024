@@ -12,10 +12,10 @@ const authentication = {
     return jwt.sign(payload, process.env.REFRESH_TOKEN_SECRET, options);
   },
   verifyAccessToken: (req, res, next) => {
-    const token = req.headers.token;
+    const token = req.cookies.accessToken;
     if (token) {
-      const accessToken = token.split(" ")[1];
-      jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      // const accessToken = token.split(" ")[1];
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
           return res.status(403).json("Token is not valid");
         }
@@ -28,11 +28,11 @@ const authentication = {
   },
 
   verifyAccessTokenAdmin: (req, res, next) => {
-    const token = req.headers.token;
+    const token = req.cookies.accessToken;
 
     if (token) {
-      const accessToken = token.split(" ")[1];
-      jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      // const accessToken = token.split(" ")[1];
+      jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
           return res.status(403).json("Token is not valid");
         }
