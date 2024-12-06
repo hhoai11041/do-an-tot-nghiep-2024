@@ -20,11 +20,12 @@ const Header = () => {
   const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
+
+  console.log(dataUser);
   
   useEffect(() => {
     getApi.getApiUser(setDataUser);
-    console.log(dataUser);
-  }, [dataUser, renderUI, renderApp]);
+  }, [renderUI, renderApp]);
 
   return (
     <div>
