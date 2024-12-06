@@ -441,6 +441,7 @@ const MapLocation = () => {
                 closeOnClick={false}
                 anchor="top"
                 className="mt-3"
+                inert={true}
               >
                 <div className="mt-[10px] dark:text-black">
                   <h2 className="screenLarge:text-lg desktop:text-lg laptop:text-lg font-semibold text-center">
