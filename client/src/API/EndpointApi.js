@@ -3,7 +3,7 @@ const url =
 export const EndpointAPI = {
   apiCrateUser: `${url}/api/users`,
   apiLogin: `${url}/api/login`,
-  apiLogin: `${url}/api/logout`,
+  apiLogout: `${url}/api/logout`,
   apiUser: `${url}/api/users/me`,
   apiUserReview: `${url}/api/users/review`,
   apiAllUser: `${url}/api/users`,
