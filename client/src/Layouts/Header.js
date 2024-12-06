@@ -48,7 +48,6 @@ const Header = () => {
                 <div className="flex justify-between items-center gap-4 screenLarge:relative desktop:relative laptop:relative tablet:relative mobile:fixed right-0">
                   <ThemeUI></ThemeUI>
                   <UserAccount
-                    accessToken={accessToken}
                     dataUser={dataUser}
                     setRenderUI={setRenderUI}
                     renderUI={renderUI}
