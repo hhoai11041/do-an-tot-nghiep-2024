@@ -2,7 +2,6 @@ import axios from "axios";
 import { EndpointAPI } from "./EndpointApi";
 import { announce } from "../Components/ModalAnnounce";
 
-axios.defaults.withCredentials = true;
 
 export const postApi = {
   createAccount: async (
@@ -43,7 +42,7 @@ export const postApi = {
       const response = await axios.post(EndpointAPI.apiLogin, {
         email: email,
         password: password,
-      });
+      }, { withCredentials: true });
 
       if (response.data.status === "Success") {
         setResetData(() => !resetData);
