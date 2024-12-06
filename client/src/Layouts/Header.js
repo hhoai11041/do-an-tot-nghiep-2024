@@ -20,10 +20,10 @@ const Header = () => {
   const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
-  const accessToken = Cookies.get("accessToken");
+  
   useEffect(() => {
-    if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-  }, [accessToken, renderUI, renderApp]);
+    getApi.getApiUser(setDataUser);
+  }, [renderUI, renderApp]);
 
   return (
     <div>
@@ -44,7 +44,7 @@ const Header = () => {
                 setModalSignUp={setModalSignUp}
                 setModalSignIn={setModalSignIn}
               ></NavConfig>
-              {accessToken ? (
+              {dataUser ? (
                 <div className="flex justify-between items-center gap-4 screenLarge:relative desktop:relative laptop:relative tablet:relative mobile:fixed right-0">
                   <ThemeUI></ThemeUI>
                   <UserAccount
