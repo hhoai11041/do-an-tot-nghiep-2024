@@ -35,7 +35,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://3.107.183.6",
+    origin: "https://vietnamtrip.online",
     credentials: true,
   })
 );
