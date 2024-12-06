@@ -299,6 +299,15 @@ const MapLocation = () => {
   });
 
 
+//
+useEffect(() => {
+  if (mapRef.current) {
+    const map = mapRef.current.getMap();
+    console.log('Map loaded:', map);
+  }
+}, [mapRef]);
+
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
