@@ -462,7 +462,7 @@ const MapLocation = () => {
                     onClick={handleClosePopup}
                     className="p-2 bg-red-500 text-white"
                   >
-                    Đóng Popup
+                    X
                   </button>
                       
                   <h2 className="screenLarge:text-lg desktop:text-lg laptop:text-lg font-semibold text-center">
