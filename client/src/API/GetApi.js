@@ -3,6 +3,8 @@ import { EndpointAPI } from "./EndpointApi";
 const timeDuration = 250;
 let abortController = null;
 
+let abortController = null; 
+
 export const getApi = {
   // Lấy thông tin user từ google
   getDataGoogle: async (token) => {
@@ -60,7 +62,6 @@ export const getApi = {
       }
       abortController = new AbortController();
      
-      
       const response = await axios.get(EndpointAPI.apiUser, {
         withCredentials: true,
         signal: abortController.signal,
