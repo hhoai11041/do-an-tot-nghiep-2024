@@ -1,3 +1,5 @@
+import express from "express";
+
 const apiLogoutAccount = express.Router();
 
 apiLogoutAccount.post("/api/logout", async (req, res) => {
