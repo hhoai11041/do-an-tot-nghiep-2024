@@ -441,6 +441,7 @@ const MapLocation = () => {
                 // onClose={handleClosePopup}
                 closeOnClick={false}
                 anchor="top"
+                closeButton={false}
                 className="mt-3"
               >
                 <div className="mt-[10px] dark:text-black">  
