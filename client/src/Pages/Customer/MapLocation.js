@@ -56,6 +56,7 @@ const MapLocation = () => {
 
   const [modalRestaurant, setModalRestaurant] = useState(false);
   const [renderUI, setRenderUI] = useState(false);
+  const directionsControl = useRef(null);
 
   function CustomTabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -144,58 +145,56 @@ const MapLocation = () => {
   };
 
   const handleShowDirections = () => {
-    if (
-      userLocation &&
-      selectedMarker &&
-      userLocation.latitude &&
-      userLocation.longitude &&
-      selectedMarker.location.coordinates
-    ) {
-      setShowDirections(true);
-
-      if (mapRef.current) {
-        const map = mapRef.current.getMap();
-
-        const existingDirections = map._controls.find(
-          (control) => control.constructor.name === "MapboxDirections"
-        );
-        if (existingDirections) {
-          map.removeControl(existingDirections);
-        }
-
-        const directions = new MapboxDirections({
-          accessToken: REACT_APP_MAPBOX_TOKEN,
-          unit: "metric",
-          profile: "mapbox/driving",
-        });
-
-        map.addControl(directions, "top-right");
-        directions.setOrigin([userLocation.longitude, userLocation.latitude]);
-        directions.setDestination([
-          selectedMarker.location.coordinates[0],
-          selectedMarker.location.coordinates[1],
-        ]);
-      }
-    } else {
-      console.error("Missing user location or selected marker");
-    }
-  };
-
-  const handleClosePopup = () => {
-    setSelectedMarker(null);
-    setShowDirections(false);
+  if (
+    userLocation &&
+    selectedMarker &&
+    userLocation.latitude &&
+    userLocation.longitude &&
+    selectedMarker.location.coordinates
+  ) {
+    setShowDirections(true);
 
     if (mapRef.current) {
       const map = mapRef.current.getMap();
 
-      const existingDirections = map._controls.find(
-        (control) => control.constructor.name === "MapboxDirections"
-      );
-      if (existingDirections) {
-        map.removeControl(existingDirections);
+      // Nếu đã tồn tại Directions Control, xóa nó trước
+      if (directionsControl.current) {
+        map.removeControl(directionsControl.current);
+        directionsControl.current = null; // Reset control
       }
-    }      
-  };
+
+      // Tạo và thêm Directions Control mới
+      const directions = new MapboxDirections({
+        accessToken: REACT_APP_MAPBOX_TOKEN,
+        unit: "metric",
+        profile: "mapbox/driving",
+      });
+
+      directionsControl.current = directions; // Lưu tham chiếu
+      map.addControl(directions, "top-right");
+
+      // Thiết lập điểm đi và điểm đến
+      directions.setOrigin([userLocation.longitude, userLocation.latitude]);
+      directions.setDestination([
+        selectedMarker.location.coordinates[0],
+        selectedMarker.location.coordinates[1],
+      ]);
+    }
+  } else {
+    console.error("Missing user location or selected marker");
+  }
+};
+
+  const handleClosePopup = () => {
+  setSelectedMarker(null);
+  setShowDirections(false);
+
+  if (mapRef.current && directionsControl.current) {
+    const map = mapRef.current.getMap();
+    map.removeControl(directionsControl.current);
+    directionsControl.current = null; // Reset control reference
+  }
+};
 
   const filteredPlaces = useMemo(() => {
     if (selectedCategory === "Tất cả") {
