@@ -4,10 +4,7 @@ import { getApi } from "../../API/GetApi";
 import ThemeUI from "../../Components/ThemeUI";
 const HeaderAdmin = ({ title }) => {
   const [renderUI, setRenderUI] = useState(false);
-  const [dataUser, setDataUser] = useState();
-  useEffect(() => {
-    getApi.getApiUser(setDataUser);
-  }, [renderUI]);
+  const dataUser = useStore((state) => state.dataUser);
 
   return (
     <div className="w-full sticky top-0 z-20 h-[80px] bg-slate-800 shadow-lg dark:bg-bgThemeUI dark:border-b-[1px] dark:border-b-gray-400 flex items-center screenLarge:pl-[18%] desktop:pl-[21%] laptop:pl-[21%] pr-6">
@@ -19,7 +16,6 @@ const HeaderAdmin = ({ title }) => {
           <ThemeUI></ThemeUI>
           <UserAccount
             dataUser={dataUser}
-            setDataUser={setDataUser}
             setRenderUI={setRenderUI}
             renderUI={renderUI}
           ></UserAccount>
