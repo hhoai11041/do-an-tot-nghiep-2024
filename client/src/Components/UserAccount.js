@@ -20,7 +20,7 @@ import { announce } from "./ModalAnnounce";
 import ModalAdmin from "../Configs/ModalAdmin";
 import ProfileAccount from "./ProfileAccount";
 import { postApi } from "../API/PostApi";
-import useStore from "../../Zustand/store";
+import useStore from "../Zustand/store";
 
 const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const [modalSignIn, setModalSignIn] = useState(false);
