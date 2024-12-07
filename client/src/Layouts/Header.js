@@ -26,7 +26,7 @@ const Header = () => {
     if(!dataUser) {
       getApi.getApiUser(setDataUser);
     }
-  }, [renderUI, renderApp]);
+  }, [dataUser, renderUI, renderApp]);
 
   return (
     <div>
