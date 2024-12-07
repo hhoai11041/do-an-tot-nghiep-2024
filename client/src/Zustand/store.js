@@ -2,7 +2,7 @@ import { create } from "zustand";
 
 const useStore = create((set) => ({
   renderApp: false,
-  setRenderHeader: (value) => set({ renderApp: !value }),
+  setRenderHeader: () => set((state) => ({ renderApp: !state.renderApp })),
   setUserDataZus: (userData) => set({ dataUser: userData }),
 }));
 
