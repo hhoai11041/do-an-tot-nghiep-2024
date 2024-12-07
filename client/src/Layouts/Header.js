@@ -20,7 +20,7 @@ const Header = () => {
   // const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
-  const dataUser1 = useStore((state) => state.dataUser);
+  const dataUser = useStore((state) => state.dataUser);
 
   useEffect(() => {
     console.log("User data updated:", dataUser);
