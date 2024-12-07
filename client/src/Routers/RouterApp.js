@@ -30,14 +30,12 @@ import HotelDetails from "../Pages/Customer/HotelDetails";
 import HotelInfoDetails from "../Layouts/Hotel/HotelInfoDetails";
 import ManageHotel from "../Pages/Admin/ManageHotel";
 import ChatbotAI from "../Pages/Customer/ChatbotAI";
-import useStore from "../Zustand/store";
 
 const RouterApp = () => {
   const [dataUser, setDataUser] = useState();
   const { renderApp } = useStore();
   useEffect(() => {
-    // getApi.getApiUser(setDataUser);
-    setDataUser(useStore((state) => state.dataUser))
+    getApi.getApiUser(setDataUser);
   }, [renderApp]);
 
   return (
