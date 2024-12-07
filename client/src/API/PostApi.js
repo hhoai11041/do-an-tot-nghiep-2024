@@ -1,8 +1,6 @@
 import axios from "axios";
 import { EndpointAPI } from "./EndpointApi";
 import { announce } from "../Components/ModalAnnounce";
-import useStore from "../Zustand/store";
-
 
 export const postApi = {
   createAccount: async (
@@ -65,9 +63,10 @@ export const postApi = {
   logoutAccount: async (
     setResetData,
     resetData,
-    setRenderHeader) => {
+    setRenderHeader,
+    renderApp
+  ) => {
   try {
-    const { renderApp } = useStore();
     const response = await axios.post(EndpointAPI.apiLogout, {}, { withCredentials: true });
 
     if (response.data.status === 200) {
