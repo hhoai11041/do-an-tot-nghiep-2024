@@ -23,6 +23,7 @@ const SignIn = ({ openModal, setOpenModal }) => {
   const [resetData, setResetData] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { setRenderHeader } = useStore();
+  const setUserDataZus = useStore.getState().setUserDataZus;
   const navigate = useNavigate();
   axios.defaults.withCredentials = true;
   // Đăng nhập bằng Google
@@ -65,7 +66,8 @@ const SignIn = ({ openModal, setOpenModal }) => {
       setResetData,
       resetData,
       setOpenModal,
-      setRenderHeader
+      setRenderHeader,
+      setUserDataZus
     );
     navigate("/");
   };
