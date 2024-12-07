@@ -39,7 +39,8 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
     setAnchorEl(null);
     postApi.logoutAccount(
       resetData,
-      setRenderHeader);
+      setRenderHeader
+    );
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
       "Thành công",
