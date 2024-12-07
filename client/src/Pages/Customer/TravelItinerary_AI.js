@@ -13,7 +13,7 @@ import iconAI from "../../Assets/Images/iconAI.png";
 import { toast } from "react-toastify";
 import { announce } from "../../Components/ModalAnnounce";
 import { motion } from "framer-motion";
-import useStore from "../Zustand/store";
+import useStore from "../../Zustand/store";
 
 const TravelItinerary_AI = () => {
   const [selectedProvince, setSelectedProvince] = useState("");
