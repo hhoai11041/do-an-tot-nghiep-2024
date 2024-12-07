@@ -38,11 +38,11 @@ const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
+    setDataUser(null)
     postApi.logoutAccount(
       setResetData,
       resetData,
       setRenderHeader,
-      setDataUser
     );
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
