@@ -23,6 +23,10 @@ const Header = () => {
 
   
   useEffect(() => {
+      console.log(dataUser)
+  }, [dataUser]);
+  
+  useEffect(() => {
       getApi.getApiUser(setDataUser);
   }, [dataUser, renderApp]);
 
