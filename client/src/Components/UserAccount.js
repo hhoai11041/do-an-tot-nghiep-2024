@@ -29,6 +29,7 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const navigate = useNavigate();
   const [modalInfoAccount, setModalInfoAccount] = useState(false);
   const [resetData, setResetData] = useState(false);
+  const [dataUser, setDataUser] = useState(false);
   const { setRenderHeader, renderApp } = useStore();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -42,7 +43,7 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
       setResetData,
       resetData,
       setRenderHeader,
-      renderApp
+      setDataUser
     );
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
