@@ -49,7 +49,7 @@ export const postApi = {
       );
 
       if (response.data.status === "Success") {
-        const { dataUser } = response.data;
+        const { dataUser } = response.data.data;
         setUserDataZus(dataUser);
         setResetData(() => !resetData);
         setOpenModal(false);
