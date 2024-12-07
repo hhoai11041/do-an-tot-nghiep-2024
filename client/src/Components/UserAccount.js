@@ -21,7 +21,7 @@ import ProfileAccount from "./ProfileAccount";
 import { postApi } from "../API/PostApi";
 import useStore from "../Zustand/store";
 
-const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
+const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const [modalSignIn, setModalSignIn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -37,7 +37,6 @@ const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    setDataUser(null);
     postApi.logoutAccount(setResetData, resetData, setRenderHeader);
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
