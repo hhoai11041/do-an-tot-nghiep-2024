@@ -19,10 +19,13 @@ const Header = () => {
   const [renderUI, setRenderUI] = useState(false);
   // const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
-  const { renderApp } = useStore();
-  const dataUser = useStore((state) => state.dataUser);
+  const { renderApp, dataUser } = useStore();
+  const dataUser1 = useStore((state) => state.dataUser);
 
-  console.log(dataUser);
+  useEffect(() => {
+    console.log("User data updated:", dataUser);
+    console.log("User data updated 1:", dataUser1);
+  }, [dataUser, dataUser1]);
 
   // useEffect(() => {
   //     getApi.getApiUser(setDataUser);
