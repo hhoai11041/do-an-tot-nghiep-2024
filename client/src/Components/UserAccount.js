@@ -22,14 +22,13 @@ import ProfileAccount from "./ProfileAccount";
 import { postApi } from "../API/PostApi";
 import useStore from "../Zustand/store";
 
-const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
+const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
   const [modalSignIn, setModalSignIn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const navigate = useNavigate();
   const [modalInfoAccount, setModalInfoAccount] = useState(false);
   const [resetData, setResetData] = useState(false);
-  const [dataUser, setDataUser] = useState(false);
   const { setRenderHeader, renderApp } = useStore();
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
