@@ -1,7 +1,7 @@
 import axios from "axios";
 import { EndpointAPI } from "./EndpointApi";
 import { announce } from "../Components/ModalAnnounce";
-import useStore from "../../Zustand/store";
+import useStore from "../Zustand/store";
 
 
 export const postApi = {
