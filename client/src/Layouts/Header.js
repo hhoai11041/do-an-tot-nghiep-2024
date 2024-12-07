@@ -22,9 +22,6 @@ const Header = () => {
   const { renderApp } = useStore();
   const dataUser = useStore((state) => state.dataUser);
 
-  useEffect(() => {
-    console.log("User data updated:", dataUser);
-  }, [dataUser]);
 
   // useEffect(() => {
   //     getApi.getApiUser(setDataUser);

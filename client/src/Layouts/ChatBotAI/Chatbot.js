@@ -36,7 +36,6 @@ const listSuggest = [
 ];
 
 const Chatbot = () => {
-  const [dataUser, setDataUser] = useState();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -44,9 +43,7 @@ const Chatbot = () => {
   const [newConversation, setNewConversation] = useState(1);
   const [textInputChat, setTextInputChat] = useState("");
   const messagesEndRef = useRef(null);
-  useEffect(() => {
-    getApi.getApiUser(setDataUser);
-  }, []);
+  const dataUser = useStore((state) => state.dataUser);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
