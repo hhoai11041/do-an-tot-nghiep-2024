@@ -29,21 +29,18 @@ export const getApi = {
   },
 
   // lấy tất cả user page admin
-  getApiAllUser: async (accessToken, setDataUser, setLoading) => {
+  getApiAllUser: async (setDataUser, setLoading) => {
     try {
       if (abortController) {
         abortController.abort();
       }
       abortController = new AbortController();
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-        signal: abortController.signal,
-      };
+
       await new Promise((resolve) => setTimeout(resolve, 500));
       const response = await axios.get(EndpointAPI.apiAllUser, {
-        headers,
-      }, { withCredentials: true, });
+        withCredentials: true,
+        signal: abortController.signal,
+      });
       setDataUser(response.data.data);
     } catch (error) {
       console.log(error);
@@ -54,9 +51,12 @@ export const getApi = {
 
   // lấy thông tin user theo token
   getApiUser: async (setDataUser) => {
-    const abortController = new AbortController();
+    if (abortController) {
+      abortController.abort();
+    }
+    abortController = new AbortController();
+
     try {
-     
       const response = await axios.get(EndpointAPI.apiUser, {
         withCredentials: true,
         signal: abortController.signal,
@@ -100,14 +100,12 @@ export const getApi = {
         abortController.abort();
       }
       abortController = new AbortController();
-      const headers = {
-        signal: abortController.signal,
-      };
+
       setLoading(true);
       await new Promise((resolve) => setTimeout(resolve, 500));
       const response = await axios.get(
         `${EndpointAPI.apiGetCuisineDetail}/${province_name}`,
-        { headers }
+        { withCredentials: true, signal: abortController.signal }
       );
       if (response.status === 200 && response.data?.data) {
         setDataCuisineDetail(response.data.data);
@@ -586,27 +584,18 @@ export const getApi = {
   },
 
   // api quản lý admin
-  getApiHotelsByProvinceAdmin: async (
-    accessToken,
-    setData,
-    provinceName,
-    setLoading
-  ) => {
+  getApiHotelsByProvinceAdmin: async (setData, provinceName, setLoading) => {
     try {
       if (abortController) {
         abortController.abort();
       }
       abortController = new AbortController();
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-        signal: abortController.signal,
-      };
+
       setLoading(true);
       await new Promise((resolve) => setTimeout(resolve, timeDuration));
       const response = await axios.get(
         `${EndpointAPI.apiGetStatisticHotel}/${provinceName}`,
-        { headers }
+        { withCredentials: true, signal: abortController.signal }
       );
       if (response.status === 200) {
         setData(response.data.hotelItems);
@@ -621,19 +610,16 @@ export const getApi = {
   },
 
   // api get chat
-  getApiChats: async (accessToken, setData, userId) => {
+  getApiChats: async (setData, userId) => {
     try {
       if (abortController) {
         abortController.abort();
       }
       abortController = new AbortController();
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-        signal: abortController.signal,
-      };
+
       const response = await axios.get(`${EndpointAPI.apiGetChats}/${userId}`, {
-        headers,
+        withCredentials: true,
+        signal: abortController.signal,
       });
       if (response.status === 200) {
         setData(response.data.data.conversation);

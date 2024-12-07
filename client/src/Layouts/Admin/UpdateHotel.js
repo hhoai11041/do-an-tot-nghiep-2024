@@ -8,7 +8,6 @@ import slugify from "react-slugify";
 
 const UpdateHotel = ({
   province,
-  accessToken,
   dataHotel,
   closeModal,
   renderUI,
@@ -94,7 +93,7 @@ const UpdateHotel = ({
     };
 
     try {
-      await UpdateApi.apiUpdateHotel(accessToken, province, dataHotel.id, data);
+      await UpdateApi.apiUpdateHotel(province, dataHotel.id, data);
       closeModal(false);
       setRenderUI((prev) => !prev);
     } catch (error) {

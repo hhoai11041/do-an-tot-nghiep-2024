@@ -33,11 +33,10 @@ import ChatbotAI from "../Pages/Customer/ChatbotAI";
 
 const RouterApp = () => {
   const [dataUser, setDataUser] = useState();
-  const accessToken = Cookies.get("accessToken");
   const { renderApp } = useStore();
   useEffect(() => {
-    if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-  }, [accessToken, renderApp]);
+    getApi.getApiUser(setDataUser);
+  }, [renderApp]);
 
   return (
     <div>

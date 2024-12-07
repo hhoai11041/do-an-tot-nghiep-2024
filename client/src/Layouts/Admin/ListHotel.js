@@ -18,7 +18,6 @@ import AddHotel from "./AddHotel";
 import UpdateHotel from "./UpdateHotel";
 
 const ListHotel = () => {
-  const accessToken = Cookies.get("accessToken");
   const [dataProvinceHotel, setDataProvinceHotel] = useState();
   const [data, setData] = useState();
   const [renderUI, setRenderUI] = useState(false);
@@ -34,15 +33,13 @@ const ListHotel = () => {
   });
 
   useEffect(() => {
-    if (accessToken)
-      getApi.getApiHotelsByProvinceAdmin(
-        accessToken,
-        setData,
-        slugify(selectedProvince),
-        setLoading
-      );
+    getApi.getApiHotelsByProvinceAdmin(
+      setData,
+      slugify(selectedProvince),
+      setLoading
+    );
     getApi.getApiProvinceHotel(setDataProvinceHotel);
-  }, [accessToken, selectedProvince, renderUI]);
+  }, [selectedProvince, renderUI]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => [
@@ -134,12 +131,7 @@ const ListHotel = () => {
             icon={faTrash}
             className="text-xl text-red-700 cursor-pointer"
             onClick={() => {
-              deleteApi.apiDeleteHotel(
-                accessToken,
-                row.original.id,
-                renderUI,
-                setRenderUI
-              );
+              deleteApi.apiDeleteHotel(row.original.id, renderUI, setRenderUI);
             }}
           />
         </div>
@@ -203,7 +195,6 @@ const ListHotel = () => {
         children={
           <AddHotel
             province={selectedProvince}
-            accessToken={accessToken}
             closeModal={setModalAddHotel}
             renderUI={renderUI}
             setRenderUI={setRenderUI}
@@ -219,7 +210,6 @@ const ListHotel = () => {
         children={
           <UpdateHotel
             province={selectedProvince}
-            accessToken={accessToken}
             dataHotel={dataHotelUpdate}
             closeModal={setModalUpdateHotel}
             setRenderUI={setRenderUI}

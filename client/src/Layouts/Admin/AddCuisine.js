@@ -9,7 +9,6 @@ import slugify from "react-slugify";
 const AddCuisine = ({
   province,
   regional,
-  accessToken,
   closeModal,
   renderUI,
   setRenderUI,
@@ -28,7 +27,6 @@ const AddCuisine = ({
     else if (!descFood) toast.error("Vui lòng nhập mô tả");
     else {
       postApi.createNewFood(
-        accessToken,
         province,
         slugify(province),
         regional,

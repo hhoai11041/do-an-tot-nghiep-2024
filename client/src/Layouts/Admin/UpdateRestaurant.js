@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 import { UpdateApi } from "../../API/UpdateApi";
 
 const UpdateRestaurant = ({
-  accessToken,
   dataRestaurant,
   closeModal,
   renderUI,
@@ -101,7 +100,6 @@ const UpdateRestaurant = ({
 
       //
       await UpdateApi.apiUpdateRestaurant(
-        accessToken,
         dataRestaurant._id,
         data,
         renderUI,

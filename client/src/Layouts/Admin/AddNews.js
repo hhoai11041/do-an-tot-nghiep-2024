@@ -7,13 +7,7 @@ import slugify from "react-slugify";
 import { postApi } from "../../API/PostApi";
 import UploadImage from "../../uploads/uploadImage";
 
-const AddNews = ({
-  categoryNews,
-  accessToken,
-  closeModal,
-  renderUI,
-  setRenderUI,
-}) => {
+const AddNews = ({ categoryNews, closeModal, renderUI, setRenderUI }) => {
   const [titleNews, setTitleNews] = useState("");
   const [valueContent, setValueContent] = useState("");
   const [urlImagePrimary, setUrlImagePrimary] = useState("");
@@ -24,7 +18,6 @@ const AddNews = ({
     else if (!valueContent) toast.error("Vui lòng nhập nội dung bài viết");
     else {
       postApi.createNews(
-        accessToken,
         slugify(categoryNews),
         titleNews,
         urlImagePrimary,

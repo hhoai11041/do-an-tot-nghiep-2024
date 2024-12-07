@@ -5,7 +5,6 @@ import UploadDesResImages from "../../uploads/UploadDesResImages";
 import { toast } from "react-toastify";
 import { UpdateApi } from "../../API/UpdateApi";
 const UpdateDestination = ({
-  accessToken,
   dataDestination,
   closeModal,
   renderUI,
@@ -103,7 +102,6 @@ const UpdateDestination = ({
 
       //
       await UpdateApi.apiUpdateDestination(
-        accessToken,
         dataDestination._id,
         data,
         renderUI,

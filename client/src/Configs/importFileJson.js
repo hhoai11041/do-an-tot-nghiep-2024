@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { loadingApp } from "../Components/Loading";
 import { announce } from "../Components/ModalAnnounce";
 
 const ImportFileJson = ({ renderUI, setRenderUI }) => {
-  const accessToken = Cookies.get("accessToken");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -74,15 +72,16 @@ const ImportFileJson = ({ renderUI, setRenderUI }) => {
               star,
             },
             {
-              headers: {
-                token: `Bearer ${accessToken}`,
-              },
+              withCredentials: true,
             }
           );
         }
       }
       setMessage("Đã gửi dữ liệu thành công.");
-      announce.showSuccessModal("Thành công", "Dữ liệu đã được thêm vào hệ thống");
+      announce.showSuccessModal(
+        "Thành công",
+        "Dữ liệu đã được thêm vào hệ thống"
+      );
       setRenderUI((prev) => !prev);
     } catch (error) {
       setMessage("Có lỗi xảy ra khi gửi dữ liệu.");

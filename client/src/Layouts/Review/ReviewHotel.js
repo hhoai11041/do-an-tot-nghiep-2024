@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Avatar, Rating } from "@mui/material";
 
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
 
 import slugify from "react-slugify";
 import { getApi } from "../../API/GetApi";
@@ -78,7 +77,6 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
   const [selected, setSelected] = useState("All");
   const [star, setStar] = useState(NaN);
   const [modalReview, setModalReview] = useState(false);
-  const accessToken = Cookies.get("accessToken");
   const [dataUser, setDataUser] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
   const [renderUI, setRenderUI] = useState(false);
@@ -159,7 +157,6 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
       toast.error("Vui lòng nhập nội dung chia sẻ");
     }
     await postApi.apiAddReview(
-      accessToken,
       slug,
       slugify(slug),
       dataUser?._id,
@@ -184,8 +181,8 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
   };
 
   useEffect(() => {
-    if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-  }, [accessToken]);
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   return (
     <div className="w-full mx-auto">
@@ -276,7 +273,7 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
           </div>
         ))}
 
-      {accessToken && (
+      {dataUser && (
         <div className="mt-10">
           <Button
             className="bg-bgPrimary h-[50px] leading-[50px] w-[50%] mx-auto rounded-md text-white font-semibold uppercase text-xl"

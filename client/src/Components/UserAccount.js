@@ -8,7 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import { deepOrange } from "@mui/material/colors";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Cookies from "js-cookie";
 import {
   faList,
   faRightFromBracket,
@@ -38,12 +37,8 @@ const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    setDataUser(null)
-    postApi.logoutAccount(
-      setResetData,
-      resetData,
-      setRenderHeader,
-    );
+    setDataUser(null);
+    postApi.logoutAccount(setResetData, resetData, setRenderHeader);
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
       "Thành công",

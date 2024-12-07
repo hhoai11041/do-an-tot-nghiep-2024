@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Cookies from "js-cookie";
 import {
   MaterialReactTable,
   useMaterialReactTable,
@@ -30,11 +29,10 @@ const ListUser = () => {
     pageSize: 5,
   });
   const [dataUsers, setDataUsers] = useState();
-  const accessToken = Cookies.get("accessToken");
+
   useEffect(() => {
-    if (accessToken)
-      getApi.getApiAllUser(accessToken, setDataUsers, setLoading);
-  }, [accessToken, renderListUser]);
+    getApi.getApiAllUser(setDataUsers, setLoading);
+  }, [renderListUser]);
 
   const handleChange = (event) => {
     setEditRole(event.target.value);
@@ -101,7 +99,6 @@ const ListUser = () => {
   const authorizedAccount = () => {
     if (dataAccountEdit)
       UpdateApi.authorizedAccount(
-        accessToken,
         dataAccountEdit?._id,
         editRole,
         setModalEdit,
@@ -199,7 +196,6 @@ const ListUser = () => {
               className="cursor-pointer"
               onClick={() => {
                 deleteApi.deleteApiUser(
-                  accessToken,
                   row.original._id,
                   renderListUser,
                   setRenderListUser

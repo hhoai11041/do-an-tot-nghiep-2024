@@ -10,7 +10,6 @@ const AddTraveItinerary = ({
   province,
   regional,
   userCreate,
-  accessToken,
   closeModal,
   renderUI,
   setRenderUI,
@@ -23,7 +22,6 @@ const AddTraveItinerary = ({
     if (!valueContent) toast.error("Vui lòng nhập nội dung");
     else {
       postApi.createTravelItinerary(
-        accessToken,
         province,
         slugify(province),
         valueTimeTrip,

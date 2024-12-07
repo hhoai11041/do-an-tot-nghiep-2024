@@ -16,7 +16,7 @@ import slugify from "react-slugify";
 import AddNews from "./AddNews";
 import UpdateNews from "./UpdateNews";
 
-const NewList = ({ accessToken, categoryNews }) => {
+const NewList = ({ categoryNews }) => {
   const [renderUI, setRenderUI] = useState(false);
   const [modalAddNews, setModalAddNews] = useState(false);
   const [modalUpdateNews, setModalUpdateNews] = useState(false);
@@ -30,14 +30,8 @@ const NewList = ({ accessToken, categoryNews }) => {
   const [dataNewsUpdate, setDataNewsUpdate] = useState();
 
   useEffect(() => {
-    if (accessToken) {
-      getApi.getApiNewsByCategoryNews(
-        setData,
-        slugify(categoryNews),
-        setLoading
-      );
-    }
-  }, [accessToken, categoryNews, renderUI]);
+    getApi.getApiNewsByCategoryNews(setData, slugify(categoryNews), setLoading);
+  }, [categoryNews, renderUI]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => [
@@ -112,7 +106,6 @@ const NewList = ({ accessToken, categoryNews }) => {
             className="text-xl text-red-700 cursor-pointer"
             onClick={() => {
               deleteApi.deleteApiNewsById(
-                accessToken,
                 row.original._id,
                 renderUI,
                 setRenderUI
@@ -167,7 +160,6 @@ const NewList = ({ accessToken, categoryNews }) => {
         children={
           <AddNews
             categoryNews={categoryNews}
-            accessToken={accessToken}
             closeModal={setModalAddNews}
             renderUI={renderUI}
             setRenderUI={setRenderUI}
@@ -183,7 +175,6 @@ const NewList = ({ accessToken, categoryNews }) => {
           <UpdateNews
             category={categoryNews}
             dataNews={dataNewsUpdate}
-            accessToken={accessToken}
             closeModal={setModalUpdateNews}
             renderUI={renderUI}
             setRenderUI={setRenderUI}

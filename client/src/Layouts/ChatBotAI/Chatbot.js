@@ -1,7 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import React, { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
-import Cookies from "js-cookie";
 import { postApi } from "../../API/PostApi";
 import { getApi } from "../../API/GetApi";
 import iconAI from "../../Assets/Images/iconAI.png";
@@ -37,8 +36,6 @@ const listSuggest = [
 ];
 
 const Chatbot = () => {
-  const accessToken = Cookies.get("accessToken");
-  console.log(accessToken)
   const [dataUser, setDataUser] = useState();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
@@ -48,8 +45,8 @@ const Chatbot = () => {
   const [textInputChat, setTextInputChat] = useState("");
   const messagesEndRef = useRef(null);
   useEffect(() => {
-    if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-  }, [accessToken]);
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
@@ -69,7 +66,6 @@ const Chatbot = () => {
 
         // Gửi tin nhắn của người dùng
         await postApi.createMessageChatAI(
-          accessToken,
           dataUser?._id,
           `${newConversation}`,
           "user",
@@ -79,7 +75,6 @@ const Chatbot = () => {
         // Nếu có phản hồi từ AI, gửi tin nhắn của bot
         if (responseText) {
           await postApi.createMessageChatAI(
-            accessToken,
             dataUser?._id,
             `${newConversation}`,
             "bot",
@@ -96,8 +91,8 @@ const Chatbot = () => {
   };
 
   useEffect(() => {
-    getApi.getApiChats(accessToken, setMessages, dataUser?._id);
-  }, [accessToken, dataUser, renderUI]);
+    getApi.getApiChats(setMessages, dataUser?._id);
+  }, [dataUser, renderUI]);
 
   // Cuộn đến tin nhắn mới nhất khi messages thay đổi
   useEffect(() => {
@@ -114,14 +109,14 @@ const Chatbot = () => {
     .pop().message;
 
   useEffect(() => {
-    if (!accessToken && !dataUser) {
+    if (!dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
       );
     }
-  }, [accessToken, dataUser]);
-  if (!accessToken && !dataUser) {
+  }, [dataUser]);
+  if (!dataUser) {
     return (
       <div className="w-full screenLarge:h-[70vh] desktop:h-[80vh] laptop:h-[80vh] shadow-lg border dark:border-gray-700 dark:border rounded-lg grid screenLarge:grid-cols-2 desktop:grid-cols-2 laptop:grid-cols-2  items-center justify-center gap-10 screenLarge:px-20 desktop:px-20 laptop:px-20 tablet:px-20 mobile:px-6 pb-4">
         <div className="flex justify-center items-center">
@@ -187,7 +182,6 @@ const Chatbot = () => {
                 <div
                   onClick={() =>
                     deleteApi.deleteApiChatAI(
-                      accessToken,
                       dataUser?._id,
                       item.conversationId,
                       renderUI,

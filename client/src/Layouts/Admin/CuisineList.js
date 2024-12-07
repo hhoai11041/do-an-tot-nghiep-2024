@@ -21,7 +21,6 @@ import ImportFileJson from "../../Configs/importFileJson";
 import UpdateCuisine from "./UpdateCuisine";
 
 const CuisineList = () => {
-  const accessToken = Cookies.get("accessToken");
   const [renderUI, setRenderUI] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState("Hà Nội");
   const [regional, setRegional] = useState("");
@@ -52,14 +51,12 @@ const CuisineList = () => {
   }, [selectedProvince]);
 
   useEffect(() => {
-    if (accessToken) {
-      getApi.getApiCuisineDetail(
-        setDataCuisineByProvince,
-        slugify(selectedProvince),
-        setLoading
-      );
-    }
-  }, [accessToken, selectedProvince, renderUI]);
+    getApi.getApiCuisineDetail(
+      setDataCuisineByProvince,
+      slugify(selectedProvince),
+      setLoading
+    );
+  }, [selectedProvince, renderUI]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const columns = useMemo(() => [
@@ -133,7 +130,6 @@ const CuisineList = () => {
             className="text-xl text-red-700 cursor-pointer"
             onClick={() => {
               deleteApi.deleteApiCuisineByFoodId(
-                accessToken,
                 slugify(selectedProvince),
                 row.original.foodId,
                 renderUI,
@@ -221,7 +217,6 @@ const CuisineList = () => {
           <AddCuisine
             province={selectedProvince}
             regional={regional}
-            accessToken={accessToken}
             closeModal={setModalAddCuisine}
             renderUI={renderUI}
             setRenderUI={setRenderUI}
@@ -237,7 +232,6 @@ const CuisineList = () => {
           <UpdateCuisine
             province={selectedProvince}
             regional={regional}
-            accessToken={accessToken}
             dataFood={dataFoodUpdate}
             closeModal={setModalUpdateCuisine}
             renderUI={renderUI}

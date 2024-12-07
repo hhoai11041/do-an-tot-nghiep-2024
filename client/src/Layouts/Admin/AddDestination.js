@@ -4,9 +4,8 @@ import Button from "../../Components/Button";
 import UploadDesResImages from "../../uploads/UploadDesResImages";
 import { toast } from "react-toastify";
 import { postApi } from "../../API/PostApi";
-import { generatePresignedUrls, uploadFilesToS3 } from "../../Configs/S3Config";
 
-const AddDestination = ({ accessToken, closeModal, renderUI, setRenderUI }) => {
+const AddDestination = ({ closeModal, renderUI, setRenderUI }) => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("Điểm du lịch");
   const [description, setDescription] = useState("");
@@ -99,7 +98,7 @@ const AddDestination = ({ accessToken, closeModal, renderUI, setRenderUI }) => {
 
       console.log("Data sent to backend:", normalizeData(data));
 
-      await postApi.apiAddDestination(accessToken, normalizeData(data));
+      await postApi.apiAddDestination(normalizeData(data));
       closeModal(false);
       setRenderUI((prev) => !prev);
     } catch (error) {

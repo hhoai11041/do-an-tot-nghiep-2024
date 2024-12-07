@@ -10,7 +10,6 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { loadingApp } from "../../Components/Loading";
 import iconAI from "../../Assets/Images/iconAI.png";
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
 import { announce } from "../../Components/ModalAnnounce";
 import { motion } from "framer-motion";
 
@@ -19,7 +18,12 @@ const TravelItinerary_AI = () => {
   const [valueSelectRegional, setValueSelectRegional] = useState("");
   const [itinerary, setItinerary] = useState();
   const [loading, setLoading] = useState(false);
-  const accessToken = Cookies.get("accessToken");
+  const [dataUser, setDataUser] = useState();
+
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
+
   const dataProvince = useMemo(
     () => data.dataProvince.map((province) => province.province_name),
     []
@@ -176,13 +180,13 @@ const TravelItinerary_AI = () => {
   };
 
   useEffect(() => {
-    if (!accessToken) {
+    if (!dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
       );
     }
-  }, [accessToken]);
+  }, [dataUser]);
 
   return (
     <motion.div
@@ -194,7 +198,7 @@ const TravelItinerary_AI = () => {
       <div>
         <Header />
         <NavTravel />
-        {accessToken ? (
+        {dataUser ? (
           <div className="screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] pt-[20px] screenLarge:mb-10 desktop:mb-10 laptop:mb-10 screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto tablet:mb-[200px] mobile:mb-[150px]">
             <div className="screenLarge:flex desktop:flex laptop:flex justify-between gap-6">
               <form

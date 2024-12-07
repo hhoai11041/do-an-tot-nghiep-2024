@@ -19,7 +19,6 @@ import { Avatar, TextField } from "@mui/material";
 import { convertDateTime } from "./ConvertDateTime";
 import UploadAvatarUser from "../uploads/UploadAvatarUser";
 import { UpdateApi } from "../API/UpdateApi";
-import Cookies from "js-cookie";
 import bcrypt from "bcryptjs-react";
 
 function CustomTabPanel(props) {
@@ -52,7 +51,6 @@ function a11yProps(index) {
 }
 
 const ProfileAccount = ({ dataUser, renderUI, setRenderUI, setOpenModal }) => {
-  const accessToken = Cookies.get("accessToken");
   const [value, setValue] = useState(0);
   const [editInfo, setEditInfo] = useState(false);
   const divRef = useRef(null);
@@ -90,7 +88,6 @@ const ProfileAccount = ({ dataUser, renderUI, setRenderUI, setOpenModal }) => {
     };
 
     UpdateApi.updateAccountByUserId(
-      accessToken,
       dataUser?._id,
       dataUpdate,
       setRenderUI,
@@ -132,7 +129,6 @@ const ProfileAccount = ({ dataUser, renderUI, setRenderUI, setOpenModal }) => {
         password: value.confirmPasswordNew,
       };
       UpdateApi.updateAccountByUserId(
-        accessToken,
         dataUser?._id,
         dataChangePassword,
         setRenderUI,

@@ -8,7 +8,6 @@ import Footer from "../../Layouts/Footer";
 import { getApi } from "../../API/GetApi";
 import slugify from "react-slugify";
 import NotFoundData from "../../Components/NotFoundData";
-import Cookies from "js-cookie";
 import Skeleton from "@mui/material/Skeleton"; // Import Skeleton từ Material UI
 import { announce } from "../../Components/ModalAnnounce";
 import lichTrinhThamKhao from "../../Assets/Images/lich-trinh-tham-khao.jpg";
@@ -19,7 +18,12 @@ const TravelItinerary = () => {
   const [loading, setLoading] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState("");
   const [valueSelectItinerary, setValueSelectItinerary] = useState("");
-  const accessToken = Cookies.get("accessToken");
+
+  const [dataUser, setDataUser] = useState();
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
+
   const dataProvince = useMemo(
     () => data.dataProvince.map((province) => province.province_name),
     []
@@ -62,13 +66,13 @@ const TravelItinerary = () => {
     );
 
   useEffect(() => {
-    if (!accessToken) {
+    if (!dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
       );
     }
-  }, [accessToken]);
+  }, [dataUser]);
 
   return (
     <motion.div
@@ -80,7 +84,7 @@ const TravelItinerary = () => {
       <div>
         <Header />
         <NavTravel />
-        {accessToken ? (
+        {dataUser ? (
           <div className="screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] pt-[20px] screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto mb-10">
             <div className="screenLarge:flex desktop:flex laptop:flex justify-between gap-10">
               <div className="dark:border-gray-700 dark:border screenLarge:w-[25%] desktop:w-[25%] laptop:w-[25%] max-h-[75vh] screenLarge:sticky laptop:sticky desktop:sticky top-[150px] rounded-lg p-4 border shadow-lg screenLarge:mb-0 desktop:mb-0 laptop:mb-0 tablet:mb-6 mobile:mb-4">

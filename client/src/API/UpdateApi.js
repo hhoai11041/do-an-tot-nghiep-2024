@@ -4,23 +4,12 @@ import { announce } from "../Components/ModalAnnounce";
 import slugify from "react-slugify";
 
 export const UpdateApi = {
-  authorizedAccount: async (
-    accessToken,
-    userId,
-    role,
-    setOpenModal,
-    render,
-    setRender
-  ) => {
+  authorizedAccount: async (userId, role, setOpenModal, render, setRender) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiAuthorizeAccount}/${userId}`,
         { role },
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -44,22 +33,12 @@ export const UpdateApi = {
   },
 
   // cập nhật thông tin, hình ảnh tài khoản người dùng
-  updateAccountByUserId: async (
-    accessToken,
-    userId,
-    dataUpdate,
-    setRenderUI,
-    renderUI
-  ) => {
+  updateAccountByUserId: async (userId, dataUpdate, setRenderUI, renderUI) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateUser}/${userId}`,
         dataUpdate,
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -83,7 +62,6 @@ export const UpdateApi = {
 
   // cập nhật thông tin lịch trình theo tỉnh thành và id
   updateItineraryDetailByID: async (
-    accessToken,
     provinceSlug,
     itineraryId,
     timeTrip,
@@ -92,17 +70,13 @@ export const UpdateApi = {
     setRenderUI
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateItineraryById}/${provinceSlug}/${itineraryId}`,
         {
           timeTrip: timeTrip,
           content: content,
         },
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -126,7 +100,6 @@ export const UpdateApi = {
 
   // cập nhật thông tin ẩm thực
   updateCuisineByFoodId: async (
-    accessToken,
     provinceSlug,
     foodId,
     foodName,
@@ -137,10 +110,6 @@ export const UpdateApi = {
     setRenderUI
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateCuisineByFoodId}/${provinceSlug}/${foodId}`,
         {
@@ -149,7 +118,7 @@ export const UpdateApi = {
           foodDesc: foodDesc,
           listImage: listImage,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
         announce.showSuccessModal("Thành công", response.data.message);
@@ -172,7 +141,6 @@ export const UpdateApi = {
 
   // cập nhật bài viết theo id (news)
   updateNewsById: async (
-    accessToken,
     newsId,
     categoryNews,
     titleNews,
@@ -182,10 +150,6 @@ export const UpdateApi = {
     setRenderUI
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateNews}/${newsId}`,
         {
@@ -194,7 +158,7 @@ export const UpdateApi = {
           imageNews: imageNews,
           content: content,
         },
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -217,22 +181,12 @@ export const UpdateApi = {
   },
 
   //api cập nhật thông tin địa điểm
-  apiUpdateDestination: async (
-    accessToken,
-    _id,
-    data,
-    renderUI,
-    setRenderUI
-  ) => {
+  apiUpdateDestination: async (_id, data, renderUI, setRenderUI) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateDestination}/${_id}`,
         data,
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -265,22 +219,12 @@ export const UpdateApi = {
   },
 
   //api cập nhật thông tin nhà hàng
-  apiUpdateRestaurant: async (
-    accessToken,
-    _id,
-    data,
-    renderUI,
-    setRenderUI
-  ) => {
+  apiUpdateRestaurant: async (_id, data, renderUI, setRenderUI) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateRestaurant}/${_id}`,
         data,
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -313,23 +257,12 @@ export const UpdateApi = {
   },
 
   //api cập nhật thông tin khách sạn
-  apiUpdateHotel: async (
-    accessToken,
-    province,
-    id,
-    data,
-    renderUI,
-    setRenderUI
-  ) => {
+  apiUpdateHotel: async (province, id, data, renderUI, setRenderUI) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateHotel}/${slugify(province)}/${id}`,
         data,
-        { headers }
+        { withCredentials: true }
       );
 
       if (response.data.status === "Success") {
@@ -384,24 +317,15 @@ export const UpdateApi = {
   },
 
   // cập nhật địa điểm du lịch theo id cho phần đánh giá (số sao, số lượt đánh giá)
-  updateDestinationReviewById: async (
-    accessToken,
-    id,
-    rating,
-    rating_count
-  ) => {
+  updateDestinationReviewById: async (id, rating, rating_count) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateDestinationReview}/${id}`,
         {
           rating: rating,
           rating_count: rating_count,
         },
-        { headers }
+        { withCredentials: true }
       );
       console.log(response);
       if (response.data.status === "Success") {
@@ -410,19 +334,15 @@ export const UpdateApi = {
   },
 
   // cập nhật nhà hàng tho id cho phần đánh giá (số sao, lượt đánh giá)
-  updateRestaurantReviewById: async (accessToken, id, rating, rating_count) => {
+  updateRestaurantReviewById: async (id, rating, rating_count) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.put(
         `${EndpointAPI.apiUpdateRestaurantReview}/${id}`,
         {
           rating: rating,
           rating_count: rating_count,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
       }

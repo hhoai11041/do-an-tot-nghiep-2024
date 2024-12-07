@@ -10,7 +10,6 @@ const UpdateTraveItinerary = ({
   province,
   regional,
   dataItinerary,
-  accessToken,
   closeModal,
   renderUI,
   setRenderUI,
@@ -26,7 +25,6 @@ const UpdateTraveItinerary = ({
     else if (!valueContent) toast.error("Vui lòng nhập nội dung");
     else
       UpdateApi.updateItineraryDetailByID(
-        accessToken,
         slugify(province),
         dataItinerary._id,
         valueTimeTrip,

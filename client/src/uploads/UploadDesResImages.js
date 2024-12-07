@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { uploadFilesToS3 } from "../Configs/S3Config";
-import Cookies from "js-cookie";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { loadingApp } from "../Components/Loading";
@@ -39,21 +38,10 @@ const UploadDesResImages = ({ setUrls, images, click, folderName }) => {
     }
 
     setLoading(true);
-    const accessToken = Cookies.get("accessToken");
-
-    if (!accessToken) {
-      toast.error("Lỗi: Không tìm thấy accessToken.");
-      setLoading(false);
-      return;
-    }
 
     try {
       // Upload file lên S3
-      const uploadedUrls = await uploadFilesToS3(
-        fileImages,
-        accessToken,
-        folderName
-      );
+      const uploadedUrls = await uploadFilesToS3(fileImages, folderName);
 
       if (uploadedUrls.length > 0) {
         setUploadedImages((prevUrls) => [...prevUrls, ...uploadedUrls]);

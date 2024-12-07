@@ -73,7 +73,6 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
   const [selected, setSelected] = useState("All");
   const [star, setStar] = useState(NaN);
   const [modalReview, setModalReview] = useState(false);
-  const accessToken = Cookies.get("accessToken");
   const [dataUser, setDataUser] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
   const [renderUI, setRenderUI] = useState(false);
@@ -96,7 +95,6 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
       toast.error("Vui lòng nhập nội dung chia sẻ");
     }
     postApi.apiAddReview(
-      accessToken,
       slug,
       slugify(slug),
       dataUser?._id,
@@ -176,8 +174,8 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
   }, [starReview]);
 
   useEffect(() => {
-    if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-  }, [accessToken]);
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   return (
     <div className="w-full mx-auto">
@@ -267,7 +265,7 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
           </div>
         ))}
 
-      {accessToken && (
+      {dataUser && (
         <div className="mt-10">
           <Button
             className="bg-bgPrimary h-[50px] leading-[50px] w-[50%] mx-auto rounded-md text-white font-semibold uppercase text-xl"

@@ -2,18 +2,17 @@ import axios from "axios";
 import { EndpointAPI } from "./EndpointApi";
 import { announce } from "../Components/ModalAnnounce";
 export const deleteApi = {
-  deleteApiUser: async (accessToken, userId, renderDelete, setRenderDelete) => {
+  deleteApiUser: async (userId, renderDelete, setRenderDelete) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa tài khoản?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteUser}/${userId}`,
-          { headers }
+          {
+            withCredentials: true,
+          }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -25,23 +24,21 @@ export const deleteApi = {
     }
   },
   deleteApiCuisineByFoodId: async (
-    accessToken,
     provinceSlug,
     foodId,
     renderUI,
     setRenderUI
   ) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa tài món ăn?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteCuisineByFoodId}/${provinceSlug}/${foodId}`,
-          { headers }
+          {
+            withCredentials: true,
+          }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -55,23 +52,19 @@ export const deleteApi = {
 
   // xóa lịch trình theo tỉnh thành và id lịch trình
   deleteApiItineraryById: async (
-    accessToken,
     provinceSlug,
     itineraryId,
     renderUI,
     setRenderUI
   ) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa lịch trình?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteItineraryById}/${provinceSlug}/${itineraryId}`,
-          { headers }
+          { withCredentials: true }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -84,18 +77,15 @@ export const deleteApi = {
   },
 
   // xóa bài viết theo id (news)
-  deleteApiNewsById: async (accessToken, newsId, renderUI, setRenderUI) => {
+  deleteApiNewsById: async (newsId, renderUI, setRenderUI) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa bài viết?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteNews}/${newsId}`,
-          { headers }
+          { withCredentials: true }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -108,24 +98,15 @@ export const deleteApi = {
   },
 
   // xóa chat AI
-  deleteApiChatAI: async (
-    accessToken,
-    userId,
-    conversation,
-    renderUI,
-    setRenderUI
-  ) => {
+  deleteApiChatAI: async (userId, conversation, renderUI, setRenderUI) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn cuộc trò chuyện?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteChats}/${userId}/conversations/${conversation}`,
-          { headers }
+          { withCredentials: true }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -138,18 +119,15 @@ export const deleteApi = {
   },
 
   //api xóa địa điểm theo id
-  apiDeleteDestination: async (accessToken, _id, renderUI, setRenderUI) => {
+  apiDeleteDestination: async (_id, renderUI, setRenderUI) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa địa điểm?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteDestination}/${_id}`,
-          { headers }
+          { withCredentials: true }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -162,18 +140,15 @@ export const deleteApi = {
   },
 
   //api xóa nhà hàng theo id
-  apiDeleteRestaurant: async (accessToken, _id, renderUI, setRenderUI) => {
+  apiDeleteRestaurant: async (_id, renderUI, setRenderUI) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa nhà hàng?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteRestaurant}/${_id}`,
-          { headers }
+          { withCredentials: true }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);
@@ -186,18 +161,15 @@ export const deleteApi = {
   },
 
   //api xóa khách sạn theo id
-  apiDeleteHotel: async (accessToken, id, renderUI, setRenderUI) => {
+  apiDeleteHotel: async (id, renderUI, setRenderUI) => {
     try {
-      const headers = {
-        token: `Bearer ${accessToken}`,
-      };
       const result = await announce.showDeleteConfirmation(
         "Bạn muốn xóa khách sạn này?"
       );
       if (result.isConfirmed) {
         const response = await axios.delete(
           `${EndpointAPI.apiDeleteHotel}/${id}`,
-          { headers }
+          { withCredentials: true }
         );
         if (response.data.status === "Success") {
           announce.showSuccessModal("Thành công", response.data.message);

@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from "react";
-import Cookies from "js-cookie";
 import {
   MaterialReactTable,
   useMaterialReactTable,
@@ -21,7 +20,6 @@ import { TextField } from "@mui/material";
 import UpdateTraveItinerary from "./updateTraveItinerary";
 
 const TravelItineraryList = () => {
-  const accessToken = Cookies.get("accessToken");
   const [dataUser, setDataUser] = useState();
   const [renderUI, setRenderUI] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState("Hà Nội");
@@ -38,8 +36,8 @@ const TravelItineraryList = () => {
   });
 
   useEffect(() => {
-    if (accessToken) getApi.getApiUser(accessToken, setDataUser);
-  }, [accessToken]);
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   const dataProvince = useMemo(
     () => data.dataProvince.map((province) => province.province_name),
@@ -134,7 +132,6 @@ const TravelItineraryList = () => {
             className="text-xl text-red-700 cursor-pointer"
             onClick={() => {
               deleteApi.deleteApiItineraryById(
-                accessToken,
                 slugify(selectedProvince),
                 row.original._id,
                 renderUI,
@@ -217,7 +214,6 @@ const TravelItineraryList = () => {
             province={selectedProvince}
             regional={regional}
             userCreate={dataUser?.username}
-            accessToken={accessToken}
             closeModal={setModalAddItinerary}
             renderUI={renderUI}
             setRenderUI={setRenderUI}
@@ -232,7 +228,6 @@ const TravelItineraryList = () => {
         className="w-[60%] bg-white px-7 py-5 rounded-sm h-[90vh] overflow-y-scroll"
         children={
           <UpdateTraveItinerary
-            accessToken={accessToken}
             province={selectedProvince}
             regional={regional}
             setRenderUI={setRenderUI}

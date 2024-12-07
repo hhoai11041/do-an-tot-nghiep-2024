@@ -1,7 +1,7 @@
 import AWS from "aws-sdk";
 import { toast } from "react-toastify";
 
-const uploadFilesToS3 = async (files, accessToken, folderName = "") => {
+const uploadFilesToS3 = async (files, folderName = "") => {
   if (!Array.isArray(files)) {
     files = [files];
   }

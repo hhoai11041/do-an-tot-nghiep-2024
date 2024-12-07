@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { getApi } from "../../API/GetApi";
-import Cookies from "js-cookie";
 import { Avatar, Rating, TextField } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { convertDateTime } from "../../Components/ConvertDateTime";
@@ -18,7 +17,6 @@ import {
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ListRestaurant = () => {
-  const accessToken = Cookies.get("accessToken");
   const [restaurants, setRestaurants] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -34,22 +32,20 @@ const ListRestaurant = () => {
   });
 
   const fetchRestaurants = () => {
-    if (accessToken) {
-      getApi.apiGetRestaurants(setRestaurants, setLoading);
-    }
+    getApi.apiGetRestaurants(setRestaurants, setLoading);
   };
 
-  useEffect(() => {
-    console.log("dataupdate:", dataRestaurantUpdate);
-  }, [dataRestaurantUpdate]);
+  // useEffect(() => {
+  //   console.log("dataupdate:", dataRestaurantUpdate);
+  // }, [dataRestaurantUpdate]);
 
-  useEffect(() => {
-    console.log("restaurants:", restaurants);
-  }, [restaurants]);
+  // useEffect(() => {
+  //   console.log("restaurants:", restaurants);
+  // }, [restaurants]);
 
   useEffect(() => {
     fetchRestaurants();
-  }, [accessToken, currentPage, renderUI]);
+  }, [currentPage, renderUI]);
 
   const columns = useMemo(() => [
     {
@@ -128,7 +124,6 @@ const ListRestaurant = () => {
             className="text-xl text-red-700 cursor-pointer"
             onClick={() => {
               deleteApi.apiDeleteRestaurant(
-                accessToken,
                 row.original._id,
                 renderUI,
                 setRenderUI
@@ -186,7 +181,6 @@ const ListRestaurant = () => {
         setOpenModal={setModalAddRestaurant}
         children={
           <AddRestaurant
-            accessToken={accessToken}
             closeModal={setModalAddRestaurant}
             renderUI={renderUI}
             setRenderUI={setRenderUI}
@@ -200,7 +194,6 @@ const ListRestaurant = () => {
         setOpenModal={setModalUpdateRestaurant}
         children={
           <UpdateRestaurant
-            accessToken={accessToken}
             dataRestaurant={dataRestaurantUpdate}
             closeModal={setModalUpdateRestaurant}
             renderUI={renderUI}

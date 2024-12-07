@@ -6,13 +6,7 @@ import { toast } from "react-toastify";
 import slugify from "react-slugify";
 import { postApi } from "../../API/PostApi";
 
-const AddHotel = ({
-  province,
-  accessToken,
-  closeModal,
-  renderUI,
-  setRenderUI,
-}) => {
+const AddHotel = ({ province, closeModal, renderUI, setRenderUI }) => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("Khách sạn");
   const [image, setImage] = useState("");
@@ -83,7 +77,7 @@ const AddHotel = ({
 
     try {
       // Gọi API để thêm khách sạn
-      await postApi.apiAddHotel(accessToken, data);
+      await postApi.apiAddHotel(data);
       closeModal(false);
       setRenderUI((prev) => !prev);
     } catch (error) {

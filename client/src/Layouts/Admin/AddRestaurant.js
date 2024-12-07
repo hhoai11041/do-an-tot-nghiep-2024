@@ -5,7 +5,7 @@ import UploadDesResImages from "../../uploads/UploadDesResImages";
 import { toast } from "react-toastify";
 import { postApi } from "../../API/PostApi";
 
-const AddRestaurant = ({ accessToken, closeModal, renderUI, setRenderUI }) => {
+const AddRestaurant = ({ closeModal, renderUI, setRenderUI }) => {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("Nhà hàng");
   const [description, setDescription] = useState("");
@@ -92,7 +92,7 @@ const AddRestaurant = ({ accessToken, closeModal, renderUI, setRenderUI }) => {
       //   console.log("Data sent to backend:", normalizeData(data));
 
       // Call the API
-      await postApi.apiAddRestaurant(accessToken, normalizeData(data));
+      await postApi.apiAddRestaurant(normalizeData(data));
       closeModal(false);
       setRenderUI((prev) => !prev);
     } catch (error) {

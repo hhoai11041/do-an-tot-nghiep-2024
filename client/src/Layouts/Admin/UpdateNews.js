@@ -10,7 +10,6 @@ import UploadImage from "../../uploads/uploadImage";
 const UpdateNews = ({
   category,
   dataNews,
-  accessToken,
   closeModal,
   renderUI,
   setRenderUI,
@@ -25,7 +24,6 @@ const UpdateNews = ({
     else if (!valueContent) toast.error("Vui lòng nhập nội dung");
     else {
       UpdateApi.updateNewsById(
-        accessToken,
         dataNews._id,
         slugify(category),
         titleNews,

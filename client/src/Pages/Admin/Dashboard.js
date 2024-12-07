@@ -6,7 +6,6 @@ import NewsStatistics from "../../Layouts/Admin/dashboard/NewsStatistics";
 import DashboardStatistics from "../../Layouts/Admin/dashboard/DashboardStatistics";
 import CuisineStatistics from "../../Layouts/Admin/dashboard/CuisineStatistics";
 import DestinationStatistics from "../../Layouts/Admin/dashboard/DestinationStatistics";
-import Cookies from "js-cookie";
 import { getApi } from "../../API/GetApi";
 import slugify from "react-slugify";
 import HotelStatistics from "../../Layouts/Admin/dashboard/HotelStatistics";
@@ -20,11 +19,10 @@ const Dashboard = () => {
   const [totalItinerary, setTotalItinerary] = useState();
   const [dataDestination, setDataDestination] = useState();
   const [totalDestination, setTotalDestination] = useState();
-  const accessToken = Cookies.get("accessToken");
+
   useEffect(() => {
-    if (accessToken)
-      getApi.getApiAllUser(accessToken, setDataUsers, setLoading);
-  }, [accessToken]);
+    getApi.getApiAllUser(setDataUsers, setLoading);
+  }, []);
 
   const adminCount = dataUsers?.filter((user) => user.role === "admin").length;
   const customerCount = dataUsers?.filter(
@@ -35,51 +33,41 @@ const Dashboard = () => {
   const categoryNews1 = "Tin tức và sự kiện";
   const categoryNews2 = "Du lịch qua hình ảnh";
   useEffect(() => {
-    if (accessToken) {
-      getApi.getApiNewsByCategoryNews(
-        setDatNewsEvent,
-        slugify(categoryNews1),
-        setLoading
-      );
-    }
-  }, [accessToken]);
+    getApi.getApiNewsByCategoryNews(
+      setDatNewsEvent,
+      slugify(categoryNews1),
+      setLoading
+    );
+  }, []);
 
   useEffect(() => {
-    if (accessToken) {
-      getApi.getApiNewsByCategoryNews(
-        setDataTravelImag,
-        slugify(categoryNews2),
-        setLoading
-      );
-    }
-  }, [accessToken]);
+    getApi.getApiNewsByCategoryNews(
+      setDataTravelImag,
+      slugify(categoryNews2),
+      setLoading
+    );
+  }, []);
   const newsEventCount = dataNewsEvent?.length;
   const newsTravelImageCount = dataNewsTravelImg?.length;
 
   // data cuisine
   useEffect(() => {
-    if (accessToken) {
-      getApi.getApiTotalFood(setTotalFood);
-    }
-  }, [accessToken]);
+    getApi.getApiTotalFood(setTotalFood);
+  }, []);
 
   // data itinerary
   useEffect(() => {
-    if (accessToken) {
-      getApi.getApiTotalItinerary(setTotalItinerary);
-    }
-  }, [accessToken]);
+    getApi.getApiTotalItinerary(setTotalItinerary);
+  }, []);
 
   // data destination
   useEffect(() => {
-    if (accessToken) {
-      getApi.apiGetDestinationsV2(
-        setDataDestination,
-        setTotalDestination,
-        setLoading
-      );
-    }
-  }, [totalDestination, accessToken]);
+    getApi.apiGetDestinationsV2(
+      setDataDestination,
+      setTotalDestination,
+      setLoading
+    );
+  }, [totalDestination]);
 
   // hotels
 

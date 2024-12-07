@@ -12,7 +12,6 @@ import { UpdateApi } from "../../API/UpdateApi";
 const UpdateCuisine = ({
   province,
   regional,
-  accessToken,
   closeModal,
   renderUI,
   setRenderUI,
@@ -37,7 +36,6 @@ const UpdateCuisine = ({
       };
 
       UpdateApi.updateCuisineByFoodId(
-        accessToken,
         slugify(province),
         dataFood?.foodId,
         dataUpdate.foodName,

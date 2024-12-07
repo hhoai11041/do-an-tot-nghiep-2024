@@ -4,7 +4,6 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import NewsList from "./NewsList";
-import Cookies from "js-cookie";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -41,7 +40,6 @@ const NewsEvent = () => {
     setValue(newValue);
   };
 
-  const accessToken = Cookies.get("accessToken");
   const categoryNews1 = "Tin tức và sự kiện";
   const categoryNews2 = "Du lịch qua hình ảnh";
 
@@ -59,17 +57,11 @@ const NewsEvent = () => {
       </Box>
       {/* tin tức và sự kiện  */}
       <CustomTabPanel value={value} index={0}>
-        <NewsList
-          accessToken={accessToken}
-          categoryNews={categoryNews1}
-        ></NewsList>
+        <NewsList categoryNews={categoryNews1}></NewsList>
       </CustomTabPanel>
       {/* danh sách  */}
       <CustomTabPanel value={value} index={1}>
-        <NewsList
-          accessToken={accessToken}
-          categoryNews={categoryNews2}
-        ></NewsList>
+        <NewsList categoryNews={categoryNews2}></NewsList>
       </CustomTabPanel>
     </Box>
   );

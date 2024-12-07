@@ -18,7 +18,6 @@ import {
 import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const ListDestination = () => {
-  const accessToken = Cookies.get("accessToken");
   const [destinations, setDestinations] = useState([]);
   const [totalDestination, setTotalDestination] = useState();
   const [totalPages, setTotalPages] = useState(1);
@@ -35,18 +34,16 @@ const ListDestination = () => {
   });
 
   const fetchDestinations = () => {
-    if (accessToken) {
-      getApi.apiGetDestinationsV2(
-        setDestinations,
-        setTotalDestination,
-        setLoading
-      );
-    }
+    getApi.apiGetDestinationsV2(
+      setDestinations,
+      setTotalDestination,
+      setLoading
+    );
   };
 
   useEffect(() => {
     fetchDestinations();
-  }, [accessToken, currentPage, renderUI]);
+  }, [currentPage, renderUI]);
 
   const columns = useMemo(() => [
     {
@@ -126,7 +123,6 @@ const ListDestination = () => {
             className="text-xl text-red-700 cursor-pointer"
             onClick={() => {
               deleteApi.apiDeleteDestination(
-                accessToken,
                 row.original._id,
                 renderUI,
                 setRenderUI
@@ -184,7 +180,6 @@ const ListDestination = () => {
         setOpenModal={setModalAddDestination}
         children={
           <AddDestination
-            accessToken={accessToken}
             closeModal={setModalAddDestination}
             renderUI={renderUI}
             setRenderUI={setRenderUI}
@@ -198,7 +193,6 @@ const ListDestination = () => {
         setOpenModal={setModalUpdateDestination}
         children={
           <UpdateDestination
-            accessToken={accessToken}
             dataDestination={dataDestinationUpdate}
             closeModal={setModalUpdateDestination}
             renderUI={renderUI}

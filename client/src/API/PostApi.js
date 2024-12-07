@@ -38,10 +38,14 @@ export const postApi = {
     setRenderHeader
   ) => {
     try {
-      const response = await axios.post(EndpointAPI.apiLogin, {
-        email: email,
-        password: password,
-      }, { withCredentials: true });
+      const response = await axios.post(
+        EndpointAPI.apiLogin,
+        {
+          email: email,
+          password: password,
+        },
+        { withCredentials: true }
+      );
 
       if (response.data.status === "Success") {
         setResetData(() => !resetData);
@@ -60,35 +64,30 @@ export const postApi = {
     }
   },
 
-  logoutAccount: async (
-    setResetData,
-    resetData,
-    setRenderHeader,
-  ) => {
-  try {
-    const response = await axios.post(EndpointAPI.apiLogout, {}, { withCredentials: true });
-
-    if (response.data.status === 200) {
-      setResetData(() => !resetData);
-      setRenderHeader((prev) => !prev);
-      announce.showSuccessModal(
-        "Thành công",
-        "Bạn đã đăng xuất thành công"
+  logoutAccount: async (setResetData, resetData, setRenderHeader) => {
+    try {
+      const response = await axios.post(
+        EndpointAPI.apiLogout,
+        {},
+        { withCredentials: true }
       );
 
+      if (response.data.status === 200) {
+        setResetData(() => !resetData);
+        setRenderHeader((prev) => !prev);
+        announce.showSuccessModal("Thành công", "Bạn đã đăng xuất thành công");
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+      announce.showErrorModal(
+        "Thất bại",
+        "Đã xảy ra lỗi khi đăng xuất, vui lòng thử lại!"
+      );
     }
-  } catch (error) {
-    console.error('Logout error:', error);
-    announce.showErrorModal(
-      "Thất bại",
-      "Đã xảy ra lỗi khi đăng xuất, vui lòng thử lại!"
-    );
-  }
-},
+  },
 
   // tạo mới ăn mới
   createNewFood: async (
-    accessToken,
     provinceName,
     provinceSlug,
     regional,
@@ -98,10 +97,6 @@ export const postApi = {
     listImage
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.post(
         `${EndpointAPI.apiCreateCuisine}`,
         {
@@ -113,7 +108,7 @@ export const postApi = {
           foodDesc: foodDesc,
           listImage: listImage,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
         announce.showSuccessModal("Thành công", response.data.message);
@@ -134,7 +129,6 @@ export const postApi = {
   },
   // tạo lộ trình chi tiết
   createTravelItinerary: async (
-    accessToken,
     provinceName,
     provinceSlug,
     timeTrip,
@@ -142,10 +136,6 @@ export const postApi = {
     userCreate
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.post(
         `${EndpointAPI.apiCreateTravelItinerary}`,
         {
@@ -155,7 +145,7 @@ export const postApi = {
           content: content,
           userCreate: userCreate,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
         announce.showSuccessModal("Thành công", response.data.message);
@@ -176,18 +166,8 @@ export const postApi = {
   },
 
   // tạo bài viết mới (tin tức)
-  createNews: async (
-    accessToken,
-    categoryNews,
-    titleNews,
-    imageNews,
-    content
-  ) => {
+  createNews: async (categoryNews, titleNews, imageNews, content) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.post(
         `${EndpointAPI.apiCreateNews}`,
         {
@@ -196,7 +176,7 @@ export const postApi = {
           imageNews: imageNews,
           content: content,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
         announce.showSuccessModal("Thành công", response.data.message);
@@ -218,7 +198,6 @@ export const postApi = {
 
   // chatbot Ai
   createMessageChatAI: async (
-    accessToken,
     userId,
     conversationId,
     role,
@@ -227,10 +206,6 @@ export const postApi = {
     setRenderUI
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.post(
         `${EndpointAPI.apiCreateChats}`,
         {
@@ -239,7 +214,7 @@ export const postApi = {
           role: role,
           message: message,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
         setRenderUI(() => !renderUI);
@@ -248,15 +223,10 @@ export const postApi = {
   },
 
   //thêm mới địa điểm
-  apiAddDestination: async (accessToken, data) => {
+  apiAddDestination: async (data) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
-
       const response = await axios.post(EndpointAPI.apiAddDestination, data, {
-        headers,
+        withCredentials: true,
       });
 
       if (response.data.status === "Success") {
@@ -278,15 +248,10 @@ export const postApi = {
   },
 
   //api thêm nhà hàng
-  apiAddRestaurant: async (accessToken, data) => {
+  apiAddRestaurant: async (data) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
-
       const response = await axios.post(EndpointAPI.apiAddRestaurant, data, {
-        headers,
+        withCredentials: true,
       });
 
       if (response.data.status === "Success") {
@@ -309,7 +274,6 @@ export const postApi = {
 
   // api thêm đánh giá
   apiAddReview: async (
-    accessToken,
     nameplate,
     nameplateSlug,
     userId,
@@ -321,10 +285,6 @@ export const postApi = {
     renderUI
   ) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.post(
         `${EndpointAPI.apiPostReview}`,
         {
@@ -336,7 +296,7 @@ export const postApi = {
           reviewContent: reviewContent,
           reviewImages: reviewImages,
         },
-        { headers }
+        { withCredentials: true }
       );
       if (response.data.status === "Success") {
         announce.showSuccessModal("Thành công", response.data.message);
@@ -358,14 +318,10 @@ export const postApi = {
   },
 
   //thêm khách sạn
-  apiAddHotel: async (accessToken, data) => {
+  apiAddHotel: async (data) => {
     try {
-      const token = accessToken;
-      const headers = {
-        token: `Bearer ${token}`,
-      };
       const response = await axios.post(`${EndpointAPI.apiAddHotel}`, data, {
-        headers,
+        withCredentials: true,
       });
 
       if (response.data.status === "Success") {
