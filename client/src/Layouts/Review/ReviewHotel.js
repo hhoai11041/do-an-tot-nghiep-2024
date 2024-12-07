@@ -15,6 +15,7 @@ import Button from "../../Components/Button";
 import ModalAdmin from "../../Configs/ModalAdmin";
 import Star from "../../Components/Star";
 import { UpdateApi } from "../../API/UpdateApi";
+import useStore from "../../Zustand/store";
 
 const dataSelectStar = [
   {
@@ -77,9 +78,9 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
   const [selected, setSelected] = useState("All");
   const [star, setStar] = useState(NaN);
   const [modalReview, setModalReview] = useState(false);
-  const [dataUser, setDataUser] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
   const [renderUI, setRenderUI] = useState(false);
+  const dataUser = useStore((state) => state.dataUser);
 
   const handleChange = (event) => {
     setStar(Number(event.target.value));
@@ -180,10 +181,7 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
     setModalReview(false);
   };
 
-  useEffect(() => {
-    getApi.getApiUser(setDataUser);
-  }, []);
-
+  
   return (
     <div className="w-full mx-auto">
       <h1 className="text-center text-2xl font-bold uppercase text-textPrimary">
