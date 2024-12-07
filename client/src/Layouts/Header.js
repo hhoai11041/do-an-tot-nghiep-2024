@@ -21,11 +21,6 @@ const Header = () => {
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
 
-  
-  useEffect(() => {
-      console.log(dataUser)
-  }, [dataUser]);
-  
   useEffect(() => {
       getApi.getApiUser(setDataUser);
   }, [renderApp]);
