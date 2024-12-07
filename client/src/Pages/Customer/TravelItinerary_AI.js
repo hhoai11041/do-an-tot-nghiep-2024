@@ -6,6 +6,7 @@ import OptionsSelect from "../../Components/OptionsSelect";
 import RadioBox from "../../Components/RadioBox";
 import Button from "../../Components/Button";
 import Footer from "../../Layouts/Footer";
+import { getApi } from "../../API/GetApi";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { loadingApp } from "../../Components/Loading";
 import iconAI from "../../Assets/Images/iconAI.png";
