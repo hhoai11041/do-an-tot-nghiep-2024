@@ -1,4 +1,4 @@
-import React, { useState, useStore } from "react";
+import React, { useState } from "react";
 import { Avatar } from "@mui/material";
 import Box from "@mui/material/Box";
 import Menu from "@mui/material/Menu";
@@ -20,6 +20,7 @@ import { announce } from "./ModalAnnounce";
 import ModalAdmin from "../Configs/ModalAdmin";
 import ProfileAccount from "./ProfileAccount";
 import { postApi } from "../API/PostApi";
+import useStore from "../../Zustand/store";
 
 const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const [modalSignIn, setModalSignIn] = useState(false);
