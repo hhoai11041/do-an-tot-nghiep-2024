@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import UserAccount from "../../Components/UserAccount";
 import { getApi } from "../../API/GetApi";
 import ThemeUI from "../../Components/ThemeUI";
+import useStore from "../../Zustand/store";
+
 const HeaderAdmin = ({ title }) => {
   const [renderUI, setRenderUI] = useState(false);
   const dataUser = useStore((state) => state.dataUser);
