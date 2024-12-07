@@ -35,7 +35,8 @@ const RouterApp = () => {
   const [dataUser, setDataUser] = useState();
   const { renderApp } = useStore();
   useEffect(() => {
-    getApi.getApiUser(setDataUser);
+    // getApi.getApiUser(setDataUser);
+    setDataUser(useStore((state) => state.dataUser))
   }, [renderApp]);
 
   return (

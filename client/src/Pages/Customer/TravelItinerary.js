@@ -18,11 +18,12 @@ const TravelItinerary = () => {
   const [loading, setLoading] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState("");
   const [valueSelectItinerary, setValueSelectItinerary] = useState("");
+  const dataUser = useStore((state) => state.dataUser);
 
-  const [dataUser, setDataUser] = useState();
-  useEffect(() => {
-    getApi.getApiUser(setDataUser);
-  }, []);
+  // const [dataUser, setDataUser] = useState();
+  // useEffect(() => {
+  //   getApi.getApiUser(setDataUser);
+  // }, []);
 
   const dataProvince = useMemo(
     () => data.dataProvince.map((province) => province.province_name),
