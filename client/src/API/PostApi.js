@@ -1,6 +1,7 @@
 import axios from "axios";
 import { EndpointAPI } from "./EndpointApi";
 import { announce } from "../Components/ModalAnnounce";
+import useStore from "../../Zustand/store";
 
 
 export const postApi = {
@@ -66,12 +67,12 @@ export const postApi = {
     resetData,
     setRenderHeader) => {
   try {
-    
+    const { renderApp } = useStore();
     const response = await axios.post(EndpointAPI.apiLogout, {}, { withCredentials: true });
 
     if (response.data.status === 200) {
       setResetData(() => !resetData);
-      setRenderHeader(true);
+      setRenderHeader(!renderApp);
       announce.showSuccessModal(
         "Thành công",
         "Bạn đã đăng xuất thành công"
