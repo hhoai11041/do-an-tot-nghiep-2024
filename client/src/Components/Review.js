@@ -75,7 +75,6 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
   const [dataUser, setDataUser] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
   const [renderUI, setRenderUI] = useState(false);
-  // const dataUser = useStore((state) => state.dataUser);
 
   const handleChange = (event) => {
     setStar(Number(event.target.value));
@@ -178,11 +177,7 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
   }, [dataUser])
 
   useEffect(() => {
-    const abortRequest = getApi.getApiUser(setDataUser);
-
-    return () => {
-      abortRequest(); 
-    };
+    getApi.getApiUser(setDataUser);
   }, []);
 
   return (
