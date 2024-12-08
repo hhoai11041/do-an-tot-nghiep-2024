@@ -39,19 +39,25 @@ const Chatbot = () => {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
   const [renderUI, setRenderUI] = useState(false);
   const [newConversation, setNewConversation] = useState(1);
   const [textInputChat, setTextInputChat] = useState("");
   const messagesEndRef = useRef(null);
-  const [dataUser, setDataUser] = useState(false);
+  const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    const cleanup = getApi.getApiUser(setDataUser);
-  
-    return () => {
-      cleanup();
-    };
+    getApi.getApiUser(setDataUser);
+    setIsLoadingUser(false)
   }, []);
+
+  // useEffect(() => {
+  //   const cleanup = getApi.getApiUser(setDataUser);
+  
+  //   return () => {
+  //     cleanup();
+  //   };
+  // }, []);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
@@ -114,13 +120,13 @@ const Chatbot = () => {
     .pop().message;
 
   useEffect(() => {
-    if (!dataUser) {
+    if (!isLoadingUser && !dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
       );
     }
-  }, [dataUser]);
+  }, [dataUser, isLoadingUser]);
   if (!dataUser) {
     return (
       <div className="w-full screenLarge:h-[70vh] desktop:h-[80vh] laptop:h-[80vh] shadow-lg border dark:border-gray-700 dark:border rounded-lg grid screenLarge:grid-cols-2 desktop:grid-cols-2 laptop:grid-cols-2  items-center justify-center gap-10 screenLarge:px-20 desktop:px-20 laptop:px-20 tablet:px-20 mobile:px-6 pb-4">
