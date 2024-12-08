@@ -46,7 +46,11 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState(false);
 
   useEffect(() => {
-    getApi.getApiUser(setDataUser);
+    const cleanup = getApi.getApiUser(setDataUser);
+  
+    return () => {
+      cleanup();
+    };
   }, []);
 
   const handleSubmitChat = async (e) => {
