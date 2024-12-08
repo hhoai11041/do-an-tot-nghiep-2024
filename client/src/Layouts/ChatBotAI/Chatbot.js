@@ -11,7 +11,6 @@ import { deleteApi } from "../../API/DeleteApi";
 import { toast } from "react-toastify";
 import { loadingApp } from "../../Components/Loading";
 import AIChatBot from "../../Assets/Images/AIChatBot.png";
-import useStore from "../../Zustand/store";
 
 const listSuggest = [
   {
@@ -44,7 +43,11 @@ const Chatbot = () => {
   const [newConversation, setNewConversation] = useState(1);
   const [textInputChat, setTextInputChat] = useState("");
   const messagesEndRef = useRef(null);
-  const dataUser = useStore((state) => state.dataUser);
+  const [dataUser, setDataUser] = useState(false);
+
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();

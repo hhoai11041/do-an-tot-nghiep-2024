@@ -82,11 +82,6 @@ const ReviewRestaurant = ({ slug, restaurantId, setRender, render }) => {
   const [renderUI, setRenderUI] = useState(false);
   const [dataUser, setDataUser] = useState(false);
 
-
-  useEffect(() => {
-    console.log(dataUser)
-  }, [dataUser])
-
   useEffect(() => {
     getApi.getApiUser(setDataUser);
   }, []);

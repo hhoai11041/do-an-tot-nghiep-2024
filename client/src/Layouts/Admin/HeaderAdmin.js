@@ -2,11 +2,15 @@ import React, { useEffect, useState } from "react";
 import UserAccount from "../../Components/UserAccount";
 import { getApi } from "../../API/GetApi";
 import ThemeUI from "../../Components/ThemeUI";
-import useStore from "../../Zustand/store";
 
 const HeaderAdmin = ({ title }) => {
   const [renderUI, setRenderUI] = useState(false);
-  const dataUser = useStore((state) => state.dataUser);
+  const [dataUser, setDataUser] = useState(false);
+
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
+
 
   return (
     <div className="w-full sticky top-0 z-20 h-[80px] bg-slate-800 shadow-lg dark:bg-bgThemeUI dark:border-b-[1px] dark:border-b-gray-400 flex items-center screenLarge:pl-[18%] desktop:pl-[21%] laptop:pl-[21%] pr-6">
@@ -18,6 +22,7 @@ const HeaderAdmin = ({ title }) => {
           <ThemeUI></ThemeUI>
           <UserAccount
             dataUser={dataUser}
+            setDataUser={setDataUser}
             setRenderUI={setRenderUI}
             renderUI={renderUI}
           ></UserAccount>

@@ -12,19 +12,17 @@ import Skeleton from "@mui/material/Skeleton"; // Import Skeleton từ Material 
 import { announce } from "../../Components/ModalAnnounce";
 import lichTrinhThamKhao from "../../Assets/Images/lich-trinh-tham-khao.jpg";
 import { motion } from "framer-motion";
-import useStore from "../../Zustand/store";
 
 const TravelItinerary = () => {
   const [dataItinerary, setDataItinerary] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState("");
   const [valueSelectItinerary, setValueSelectItinerary] = useState("");
-  const dataUser = useStore((state) => state.dataUser);
+  const [dataUser, setDataUser] = useState();
 
-  // const [dataUser, setDataUser] = useState();
-  // useEffect(() => {
-  //   getApi.getApiUser(setDataUser);
-  // }, []);
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   const dataProvince = useMemo(
     () => data.dataProvince.map((province) => province.province_name),

@@ -84,10 +84,6 @@ const ReviewDestination = ({ slug, destinationId, setRender, render }) => {
   const [dataUser, setDataUser] = useState(false);
 
   useEffect(() => {
-    console.log(dataUser)
-  }, [dataUser])
-
-  useEffect(() => {
     getApi.getApiUser(setDataUser);
   }, []);
 

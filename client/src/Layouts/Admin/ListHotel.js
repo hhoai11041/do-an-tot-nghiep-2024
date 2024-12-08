@@ -12,7 +12,6 @@ import {
 import OptionsSelect from "../../Components/OptionsSelect";
 import { Avatar, Rating } from "@mui/material";
 import { loadingApp } from "../../Components/Loading";
-import Cookies from "js-cookie";
 import Button from "../../Components/Button";
 import AddHotel from "./AddHotel";
 import UpdateHotel from "./UpdateHotel";

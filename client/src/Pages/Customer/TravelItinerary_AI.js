@@ -13,19 +13,17 @@ import iconAI from "../../Assets/Images/iconAI.png";
 import { toast } from "react-toastify";
 import { announce } from "../../Components/ModalAnnounce";
 import { motion } from "framer-motion";
-import useStore from "../../Zustand/store";
 
 const TravelItinerary_AI = () => {
   const [selectedProvince, setSelectedProvince] = useState("");
   const [valueSelectRegional, setValueSelectRegional] = useState("");
   const [itinerary, setItinerary] = useState();
   const [loading, setLoading] = useState(false);
-  // const [dataUser, setDataUser] = useState();
-  const dataUser = useStore((state) => state.dataUser);
+  const [dataUser, setDataUser] = useState();
 
-  // useEffect(() => {
-  //   getApi.getApiUser(setDataUser);
-  // }, []);
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
 
   const dataProvince = useMemo(
     () => data.dataProvince.map((province) => province.province_name),
