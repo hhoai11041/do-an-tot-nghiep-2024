@@ -23,7 +23,6 @@ const Header = () => {
 
 
   useEffect(() => {
-    console.log("RenderApp changed:", renderApp);
     const abortRequest = getApi.getApiUser(setDataUser);
 
     return () => {

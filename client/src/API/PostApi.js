@@ -74,7 +74,7 @@ export const postApi = {
 
       if (response.data.status === 200) {
         setResetData(() => !resetData);
-        setRenderHeader();
+        setRenderHeader(true);
         announce.showSuccessModal("Thành công", "Bạn đã đăng xuất thành công");
       }
     } catch (error) {
