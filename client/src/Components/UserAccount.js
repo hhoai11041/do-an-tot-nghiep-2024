@@ -38,12 +38,13 @@ const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    postApi.logoutAccount(setResetData, resetData, setRenderHeader, setDataUser);
+    postApi.logoutAccount(setResetData, resetData, setRenderHeader);
+    setDataUser(null);
     setRenderUI(() => !renderUI);
-    // announce.showSuccessModal(
-    //   "Thành công",
-    //   "Bạn đã đăng xuất tài khoản thành công"
-    // );
+    announce.showSuccessModal(
+      "Thành công",
+      "Bạn đã đăng xuất tài khoản thành công"
+    );
     navigate("/");
   };
 

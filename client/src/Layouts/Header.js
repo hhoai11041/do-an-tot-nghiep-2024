@@ -23,18 +23,18 @@ const Header = () => {
 
 
   useEffect(() => {
-    if (!dataUser) {
     const { promise, abort } = getApi.getApiUser(setDataUser);
-
-    promise.catch((error) => {
-      if (error.name !== "AbortError") {
+  
+    promise
+      .then((data) => {
+        setDataUser(data); 
+      })
+      .catch((error) => {
         console.error("Lỗi khi fetch user:", error);
-      }
-    });
-
+      });
+  
     return () => abort();
-  }
-  }, [renderApp]);
+  }, []);
 
   return (
     <div>
