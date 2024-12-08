@@ -47,8 +47,15 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    getApi.getApiUser(setDataUser);
-    setIsLoadingUser(false)
+    if (!isLoadingUser && !dataUser) {
+      announce.showErrorModal(
+        "Đăng nhập",
+        "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
+      );
+    } else {
+      getApi.getApiUser(setDataUser);
+      setIsLoadingUser(false)
+    }
   }, []);
 
   const handleSubmitChat = async (e) => {
