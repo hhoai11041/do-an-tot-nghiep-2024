@@ -47,17 +47,8 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState();
 
   useEffect(() => {
-    getApi.getApiUser(setDataUser);
-    setIsLoadingUser(false)
+    getApi.getApiUser(setDataUser).finally(() => setIsLoadingUser(false));
   }, [renderUI]);
-
-  // useEffect(() => {
-  //   const cleanup = getApi.getApiUser(setDataUser);
-  
-  //   return () => {
-  //     cleanup();
-  //   };
-  // }, []);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
@@ -127,7 +118,7 @@ const Chatbot = () => {
         );
       }
   }, [dataUser, isLoadingUser]);
-  
+
   if (!dataUser) {
     return (
       <div className="w-full screenLarge:h-[70vh] desktop:h-[80vh] laptop:h-[80vh] shadow-lg border dark:border-gray-700 dark:border rounded-lg grid screenLarge:grid-cols-2 desktop:grid-cols-2 laptop:grid-cols-2  items-center justify-center gap-10 screenLarge:px-20 desktop:px-20 laptop:px-20 tablet:px-20 mobile:px-6 pb-4">
