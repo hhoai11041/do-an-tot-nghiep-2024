@@ -56,7 +56,7 @@ const Chatbot = () => {
       getApi.getApiUser(setDataUser);
       setIsLoadingUser(false)
     }
-  }, []);
+  }, [isLoadingUser, dataUser]);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
@@ -118,14 +118,14 @@ const Chatbot = () => {
     ?.filter((item) => item.role === "user")
     .pop().message;
 
-  useEffect(() => {
-      if (!isLoadingUser && !dataUser) {
-        announce.showErrorModal(
-          "Đăng nhập",
-          "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
-        );
-      }
-  }, [dataUser, isLoadingUser]);
+  // useEffect(() => {
+  //     if (!isLoadingUser && !dataUser) {
+  //       announce.showErrorModal(
+  //         "Đăng nhập",
+  //         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
+  //       );
+  //     }
+  // }, [dataUser, isLoadingUser]);
 
   if (!dataUser) {
     return (
