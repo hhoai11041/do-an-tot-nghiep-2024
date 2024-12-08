@@ -120,11 +120,16 @@ const Chatbot = () => {
     .pop().message;
 
   useEffect(() => {
-    if (!isLoadingUser && !dataUser) {
-      announce.showErrorModal(
-        "Đăng nhập",
-        "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
-      );
+    if(!isLoadingUser) {
+      if (!dataUser) {
+        announce.showErrorModal(
+          "Đăng nhập",
+          "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
+        );
+      }
+    } else {
+      console.log("Loading User Data...");
+      
     }
   }, [dataUser, isLoadingUser]);
   if (!dataUser) {
