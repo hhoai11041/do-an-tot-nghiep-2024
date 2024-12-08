@@ -8,7 +8,6 @@ import ModalAdmin from "../Configs/ModalAdmin";
 import { Avatar, Rating } from "@mui/material";
 import UploadDesResImages from "../uploads/UploadDesResImages";
 import { toast } from "react-toastify";
-import Cookies from "js-cookie";
 import { getApi } from "../API/GetApi";
 import slugify from "react-slugify";
 import { postApi } from "../API/PostApi";
@@ -73,10 +72,10 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
   const [selected, setSelected] = useState("All");
   const [star, setStar] = useState(NaN);
   const [modalReview, setModalReview] = useState(false);
-  // const [dataUser, setDataUser] = useState([]);
+  const [dataUser, setDataUser] = useState([]);
   const [userDetails, setUserDetails] = useState([]);
   const [renderUI, setRenderUI] = useState(false);
-  const dataUser = useStore((state) => state.dataUser);
+  // const dataUser = useStore((state) => state.dataUser);
 
   const handleChange = (event) => {
     setStar(Number(event.target.value));
@@ -174,9 +173,13 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
     }
   }, [starReview]);
 
-  // useEffect(() => {
-  //   getApi.getApiUser(setDataUser);
-  // }, []);
+  useEffect(() => {
+    const abortRequest = getApi.getApiUser(setDataUser);
+
+    return () => {
+      abortRequest(); 
+    };
+  }, []);
 
   return (
     <div className="w-full mx-auto">
