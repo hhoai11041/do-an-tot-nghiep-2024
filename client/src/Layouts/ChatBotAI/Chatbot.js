@@ -51,7 +51,6 @@ const Chatbot = () => {
   
     promise
       .then((data) => {
-        console.log("Dữ liệu user:", data);
         setIsLoadingUser(false);
       })
       .catch((error) => {
@@ -59,7 +58,7 @@ const Chatbot = () => {
         setIsLoadingUser(false);
       });
   
-    return () => abort(); // Dọn dẹp khi component unmount
+    return () => abort();
   }, []);
 
   const handleSubmitChat = async (e) => {
@@ -136,7 +135,6 @@ const Chatbot = () => {
       <div className="flex justify-center items-center w-full h-screen">
         <div className="text-center">
           <p className="text-xl">Đang tải dữ liệu người dùng...</p>
-          {/* Có thể thêm spinner để biểu thị quá trình tải */}
         </div>
       </div>
     );

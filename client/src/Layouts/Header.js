@@ -25,20 +25,18 @@ const Header = () => {
   useEffect(() => {
     const { promise, abort } = getApi.getApiUser(setDataUser);
   
-    // Xử lý dữ liệu từ API
     promise
       .then((data) => {
         console.log("Dữ liệu user:", data);
-        setDataUser(data); // Cập nhật state dataUser
+        setDataUser(data); 
       })
       .catch((error) => {
         console.error("Lỗi khi fetch user:", error);
       });
   
-    // Cleanup khi component bị unmount hoặc renderApp thay đổi
-    return () => abort();
+    // return () => abort();
   }, [renderApp]);
-  
+
   return (
     <div>
       <div className="bg-white dark:bg-bgThemeUI flex items-center h-[80px] fixed top-0 z-50 w-full text-[18px] border-b-[1px] dark:border-stone-500 ">
