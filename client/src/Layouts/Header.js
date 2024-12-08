@@ -19,10 +19,11 @@ const Header = () => {
   const [renderUI, setRenderUI] = useState(false);
   const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
-  const renderApp = useStore((state) => state.renderApp);
+  const { renderApp } = useStore();
 
 
   useEffect(() => {
+    console.log("RenderApp changed:", renderApp);
     const abortRequest = getApi.getApiUser(setDataUser);
 
     return () => {
