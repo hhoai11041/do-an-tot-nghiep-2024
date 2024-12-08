@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 const TravelItinerary = () => {
   const [dataItinerary, setDataItinerary] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
   const [selectedProvince, setSelectedProvince] = useState("");
   const [valueSelectItinerary, setValueSelectItinerary] = useState("");
   const [dataUser, setDataUser] = useState(null);

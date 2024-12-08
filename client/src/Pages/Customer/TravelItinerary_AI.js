@@ -19,6 +19,7 @@ const TravelItinerary_AI = () => {
   const [valueSelectRegional, setValueSelectRegional] = useState("");
   const [itinerary, setItinerary] = useState();
   const [loading, setLoading] = useState(false);
+  const [isLoadingUser, setIsLoadingUser] = useState(true);
   const [dataUser, setDataUser] = useState();
 
   useEffect(() => {
