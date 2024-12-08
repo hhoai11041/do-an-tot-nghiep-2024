@@ -21,9 +21,18 @@ const TravelItinerary = () => {
   const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    setLoading(true); 
-    getApi.getApiUser(setDataUser);
-    setLoading(false); 
+    const { promise, abort } = getApi.getApiUser(setDataUser);
+  
+    promise
+      .then((data) => {
+        setIsLoadingUser(false);
+      })
+      .catch((error) => {
+        console.error("Lỗi khi fetch user:", error);
+        setIsLoadingUser(false);
+      });
+  
+    return () => abort();
   }, []);
 
   const dataProvince = useMemo(
@@ -68,13 +77,23 @@ const TravelItinerary = () => {
     );
 
     useEffect(() => {
-      if (!loading && !dataUser) {
+      if (!isLoadingUser && !dataUser) {
         announce.showErrorModal(
           "Đăng nhập",
           "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
         );
       }
-    }, [dataUser, loading]);
+  }, [dataUser, isLoadingUser]);
+
+  if (isLoadingUser) {
+    return (
+      <div className="flex justify-center items-center w-full h-screen">
+        <div className="text-center">
+          <p className="text-xl">Đang tải dữ liệu người dùng...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <motion.div

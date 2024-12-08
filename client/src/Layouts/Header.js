@@ -20,26 +20,21 @@ const Header = () => {
   const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
-  const [isMounted, setIsMounted] = useState(false);
 
 
   useEffect(() => {
-    if (!isMounted) {
-      setIsMounted(true);
-      
-      const { promise, abort } = getApi.getApiUser(setDataUser);
+    const { promise, abort } = getApi.getApiUser(setDataUser);
   
-      promise
-        .then((data) => {
-          setDataUser(data); 
-        })
-        .catch((error) => {
-          console.error("Lỗi khi fetch user:", error);
-        });
+    promise
+      .then((data) => {
+        setDataUser(data); 
+      })
+      .catch((error) => {
+        console.error("Lỗi khi fetch user:", error);
+      });
   
-      return () => abort();
-    }
-  }, [isMounted]);
+    return () => abort();
+  }, [renderApp]);
 
   return (
     <div>
