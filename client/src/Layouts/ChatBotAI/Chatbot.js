@@ -47,21 +47,20 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    if (!dataUser && isLoadingUser) {
-      getApi.getApiUser(setDataUser); // Call API to fetch user data
-    }
-
-    if (dataUser && isLoadingUser) {
-      setIsLoadingUser(false);
-    } 
-    
-    if (!dataUser && !isLoadingUser) {
-      announce.showErrorModal(
-        "Đăng nhập",
-        "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
-      );
-    }
-  }, [dataUser, isLoadingUser]);
+    const { promise, abort } = getApi.getApiUser(setDataUser);
+  
+    promise
+      .then((data) => {
+        console.log("Dữ liệu user:", data);
+        setIsLoadingUser(false);
+      })
+      .catch((error) => {
+        console.error("Lỗi khi fetch user:", error);
+        setIsLoadingUser(false);
+      });
+  
+    return () => abort(); // Dọn dẹp khi component unmount
+  }, []);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
@@ -123,14 +122,14 @@ const Chatbot = () => {
     ?.filter((item) => item.role === "user")
     .pop().message;
 
-  // useEffect(() => {
-  //     if (!isLoadingUser && !dataUser) {
-  //       announce.showErrorModal(
-  //         "Đăng nhập",
-  //         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
-  //       );
-  //     }
-  // }, [dataUser, isLoadingUser]);
+  useEffect(() => {
+      if (!isLoadingUser && !dataUser) {
+        announce.showErrorModal(
+          "Đăng nhập",
+          "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
+        );
+      }
+  }, [dataUser, isLoadingUser]);
 
   if (isLoadingUser) {
     return (

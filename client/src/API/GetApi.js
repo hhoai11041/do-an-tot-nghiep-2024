@@ -51,30 +51,29 @@ export const getApi = {
 
   // lấy thông tin user theo token
   getApiUser: (setDataUser) => {
-    const abortControllerUser = new AbortController();  // Khởi tạo AbortController
-
-    // Thực hiện request
-    const fetchData = async () => {
+    const abortControllerUser = new AbortController(); // Khởi tạo AbortController
+  
+    // Trả về Promise
+    const promise = new Promise(async (resolve, reject) => {
       try {
         const response = await axios.get(EndpointAPI.apiUser, {
           withCredentials: true,
-          signal: abortControllerUser.signal,  // Gắn signal vào trong yêu cầu
+          signal: abortControllerUser.signal, // Gắn signal vào trong yêu cầu
         });
-        setDataUser(response.data.data);  // Cập nhật dữ liệu
+        setDataUser(response.data.data); // Cập nhật dữ liệu
+        resolve(response.data.data); // Resolve dữ liệu khi thành công
       } catch (error) {
-        // Đảm bảo chỉ log lỗi nếu không phải lỗi hủy
-        if (error.name !== 'AbortError') {
-          console.log(error);
+        if (error.name === 'AbortError') {
+          console.log("Request bị hủy");
+          resolve(null); // Không coi đây là lỗi nghiêm trọng
+        } else {
+          reject(error); // Đẩy lỗi ra ngoài nếu không phải AbortError
         }
       }
-    };
-
-    fetchData();  // Gọi hàm fetchData để thực hiện API request
-
-    // Trả về hàm dọn dẹp hủy bỏ yêu cầu
-    return () => {
-      abortControllerUser.abort();  // Hủy bỏ yêu cầu khi cần
-    };
+    });
+  
+    // Trả về cả Promise và hàm dọn dẹp
+    return { promise, abort: () => abortControllerUser.abort() };
   },
 
   // lấy thông tin user theo userid
