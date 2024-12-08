@@ -23,18 +23,20 @@ const Header = () => {
 
 
   useEffect(() => {
-    const { promise, abort } = getApi.getApiUser(setDataUser);
+    if (!dataUser) {  // Kiểm tra nếu dataUser chưa có
+      const { promise, abort } = getApi.getApiUser(setDataUser);
   
-    promise
-      .then((data) => {
-        setDataUser(data); 
-      })
-      .catch((error) => {
-        console.error("Lỗi khi fetch user:", error);
-      });
+      promise
+        .then((data) => {
+          setDataUser(data); 
+        })
+        .catch((error) => {
+          console.error("Lỗi khi fetch user:", error);
+        });
   
-    return () => abort();
-  }, []);
+      return () => abort();
+    }
+  }, [dataUser, renderApp]);
 
   return (
     <div>

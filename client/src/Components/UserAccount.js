@@ -45,7 +45,7 @@ const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
       "Thành công",
       "Bạn đã đăng xuất tài khoản thành công"
     );
-    navigate("/");
+    // navigate("/");
   };
 
   return (
