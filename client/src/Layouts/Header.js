@@ -27,7 +27,7 @@ const Header = () => {
 
 
   useEffect(() => {
-      getApi.getApiUser(setDataUser);
+      if(!dataUser) getApi.getApiUser(setDataUser);
   }, [renderApp]);
 
   return (
