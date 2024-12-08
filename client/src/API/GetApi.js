@@ -50,22 +50,30 @@ export const getApi = {
   },
 
   // lấy thông tin user theo token
-  getApiUser: async (setDataUser) => {
-    
-    const abortControllerUser = new AbortController();
+  getApiUser: (setDataUser) => {
+    const abortControllerUser = new AbortController();  // Khởi tạo AbortController
 
-    try {
-      const response = await axios.get(EndpointAPI.apiUser, {
-        withCredentials: true,
-        signal: abortControllerUser.signal,
-      });
-      setDataUser(response.data.data);
-    } catch (error) {
-      console.log(error);
-    }
+    // Thực hiện request
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(EndpointAPI.apiUser, {
+          withCredentials: true,
+          signal: abortControllerUser.signal,  // Gắn signal vào trong yêu cầu
+        });
+        setDataUser(response.data.data);  // Cập nhật dữ liệu
+      } catch (error) {
+        // Đảm bảo chỉ log lỗi nếu không phải lỗi hủy
+        if (error.name !== 'AbortError') {
+          console.log(error);
+        }
+      }
+    };
 
+    fetchData();  // Gọi hàm fetchData để thực hiện API request
+
+    // Trả về hàm dọn dẹp hủy bỏ yêu cầu
     return () => {
-      abortControllerUser.abort();
+      abortControllerUser.abort();  // Hủy bỏ yêu cầu khi cần
     };
   },
 
