@@ -46,7 +46,12 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState(false);
 
   useEffect(() => {
-    getApi.getApiUser(setDataUser);
+    const fetchUser = async () => {
+      setLoading(true);
+      getApi.getApiUser(setDataUser);
+      setLoading(false);
+    };
+    fetchUser();
   }, []);
 
   const handleSubmitChat = async (e) => {
@@ -109,14 +114,15 @@ const Chatbot = () => {
     ?.filter((item) => item.role === "user")
     .pop().message;
 
-  useEffect(() => {
-    if (!dataUser) {
-      announce.showErrorModal(
-        "Đăng nhập",
-        "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
-      );
-    }
-  }, [dataUser]);
+    useEffect(() => {
+      if (!loading && !dataUser) {
+        announce.showErrorModal(
+          "Đăng nhập",
+          "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
+        );
+      }
+    }, [dataUser, loading]);
+
   if (!dataUser) {
     return (
       <div className="w-full screenLarge:h-[70vh] desktop:h-[80vh] laptop:h-[80vh] shadow-lg border dark:border-gray-700 dark:border rounded-lg grid screenLarge:grid-cols-2 desktop:grid-cols-2 laptop:grid-cols-2  items-center justify-center gap-10 screenLarge:px-20 desktop:px-20 laptop:px-20 tablet:px-20 mobile:px-6 pb-4">

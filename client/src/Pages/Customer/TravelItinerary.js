@@ -18,10 +18,15 @@ const TravelItinerary = () => {
   const [loading, setLoading] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState("");
   const [valueSelectItinerary, setValueSelectItinerary] = useState("");
-  const [dataUser, setDataUser] = useState();
+  const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    getApi.getApiUser(setDataUser);
+    const fetchUser = async () => {
+      setLoading(true);
+      getApi.getApiUser(setDataUser);
+      setLoading(false);
+    };
+    fetchUser();
   }, []);
 
   const dataProvince = useMemo(
@@ -65,14 +70,14 @@ const TravelItinerary = () => {
       (item) => item.timeTrip === valueSelectItinerary
     );
 
-  useEffect(() => {
-    if (!dataUser) {
-      announce.showErrorModal(
-        "Đăng nhập",
-        "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
-      );
-    }
-  }, [dataUser]);
+    useEffect(() => {
+      if (!loading && !dataUser) {
+        announce.showErrorModal(
+          "Đăng nhập",
+          "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
+        );
+      }
+    }, [dataUser, loading]);
 
   return (
     <motion.div
