@@ -47,7 +47,17 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState();
 
   useEffect(() => {
-    getApi.getApiUser(setDataUser).finally(() => setIsLoadingUser(false));
+    const fetchUserData = async () => {
+      try {
+        await getApi.getApiUser(setDataUser);
+        setIsLoadingUser(false); // Only update when the user data is loaded
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+        // Optionally handle error (e.g., show an error message)
+      }
+    };
+  
+    fetchUserData(); 
   }, [renderUI]);
 
   const handleSubmitChat = async (e) => {
