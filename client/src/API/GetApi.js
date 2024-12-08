@@ -51,9 +51,7 @@ export const getApi = {
 
   // lấy thông tin user theo token
   getApiUser: async (setDataUser) => {
-    // if (abortController) {
-    //   abortController.abort();
-    // }
+    
     const abortControllerUser = new AbortController();
 
     try {
@@ -67,7 +65,7 @@ export const getApi = {
     }
 
     return () => {
-      abortController.abort();
+      abortControllerUser.abort();
     };
   },
 
