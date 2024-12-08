@@ -44,21 +44,12 @@ const Chatbot = () => {
   const [newConversation, setNewConversation] = useState(1);
   const [textInputChat, setTextInputChat] = useState("");
   const messagesEndRef = useRef(null);
-  const [dataUser, setDataUser] = useState();
+  const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        await getApi.getApiUser(setDataUser);
-        setIsLoadingUser(false); // Only update when the user data is loaded
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-        // Optionally handle error (e.g., show an error message)
-      }
-    };
-  
-    fetchUserData(); 
-  }, [renderUI]);
+    getApi.getApiUser(setDataUser);
+    setIsLoadingUser(false)
+  }, []);
 
   const handleSubmitChat = async (e) => {
     e.preventDefault();
