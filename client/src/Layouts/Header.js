@@ -17,15 +17,18 @@ const Header = () => {
   const [modalSignUp, setModalSignUp] = useState(false);
   const [modalSignIn, setModalSignIn] = useState(false);
   const [renderUI, setRenderUI] = useState(false);
-  // const [dataUser, setDataUser] = useState();
+  const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
-  const dataUser = useStore((state) => state.dataUser);
+
+  useEffect(() => {
+    console.log(dataUser)
+  }, [dataUser])
 
 
-  // useEffect(() => {
-  //     getApi.getApiUser(setDataUser);
-  // }, [renderApp]);
+  useEffect(() => {
+      getApi.getApiUser(setDataUser);
+  }, [renderApp]);
 
   return (
     <div>
