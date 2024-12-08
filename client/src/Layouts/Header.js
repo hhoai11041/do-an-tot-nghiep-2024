@@ -20,10 +20,13 @@ const Header = () => {
   const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
   const { renderApp } = useStore();
+  const [isMounted, setIsMounted] = useState(false);
 
 
   useEffect(() => {
-    if (!dataUser) {  // Kiểm tra nếu dataUser chưa có
+    if (!isMounted) {
+      setIsMounted(true);
+      
       const { promise, abort } = getApi.getApiUser(setDataUser);
   
       promise
@@ -36,7 +39,7 @@ const Header = () => {
   
       return () => abort();
     }
-  }, [dataUser, renderApp]);
+  }, [isMounted]);
 
   return (
     <div>
