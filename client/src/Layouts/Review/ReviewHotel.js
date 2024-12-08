@@ -15,7 +15,7 @@ import Button from "../../Components/Button";
 import ModalAdmin from "../../Configs/ModalAdmin";
 import Star from "../../Components/Star";
 import { UpdateApi } from "../../API/UpdateApi";
-import useStore from "../../Zustand/store";
+
 
 const dataSelectStar = [
   {
@@ -80,7 +80,17 @@ const ReviewHotel = ({ slug, slugProvince, setRender, render }) => {
   const [modalReview, setModalReview] = useState(false);
   const [userDetails, setUserDetails] = useState([]);
   const [renderUI, setRenderUI] = useState(false);
-  const dataUser = useStore((state) => state.dataUser);
+  const [dataUser, setDataUser] = useState(false);
+
+
+  useEffect(() => {
+    console.log(dataUser)
+  }, [dataUser])
+
+  useEffect(() => {
+    getApi.getApiUser(setDataUser);
+  }, []);
+
 
   const handleChange = (event) => {
     setStar(Number(event.target.value));
