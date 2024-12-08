@@ -19,11 +19,7 @@ const Header = () => {
   const [renderUI, setRenderUI] = useState(false);
   const [dataUser, setDataUser] = useState();
   const [clickedBar, setClickBar] = useState(false);
-  const { renderApp } = useStore();
-
-  useEffect(() => {
-    console.log(dataUser)
-  }, [dataUser])
+  const renderApp = useStore((state) => state.renderApp);
 
 
   useEffect(() => {
