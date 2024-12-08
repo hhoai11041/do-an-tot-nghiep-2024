@@ -51,20 +51,24 @@ export const getApi = {
 
   // lấy thông tin user theo token
   getApiUser: async (setDataUser) => {
-    if (abortController) {
-      abortController.abort();
-    }
-    abortController = new AbortController();
+    // if (abortController) {
+    //   abortController.abort();
+    // }
+    const abortControllerUser = new AbortController();
 
     try {
       const response = await axios.get(EndpointAPI.apiUser, {
         withCredentials: true,
-        signal: abortController.signal,
+        signal: abortControllerUser.signal,
       });
       setDataUser(response.data.data);
     } catch (error) {
       console.log(error);
     }
+
+    return () => {
+      abortController.abort();
+    };
   },
 
   // lấy thông tin user theo userid

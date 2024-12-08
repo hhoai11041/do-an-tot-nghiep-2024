@@ -27,8 +27,12 @@ const Header = () => {
 
 
   useEffect(() => {
-      if(!dataUser) getApi.getApiUser(setDataUser);
-  }, []);
+    const abortRequest = getApi.getApiUser(setDataUser);
+
+    return () => {
+      abortRequest(); 
+    };
+  }, [renderApp]);
 
   return (
     <div>
