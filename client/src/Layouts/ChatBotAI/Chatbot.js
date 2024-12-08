@@ -50,6 +50,7 @@ const Chatbot = () => {
     // Nếu dữ liệu người dùng chưa có và đang trong quá trình tải
     if (isLoadingUser) {
       getApi.getApiUser(setDataUser);  // Gọi API để tải dữ liệu người dùng
+      // isLoadingUser(false)
     } else if (!dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
@@ -126,6 +127,17 @@ const Chatbot = () => {
   //       );
   //     }
   // }, [dataUser, isLoadingUser]);
+
+  if (isLoadingUser) {
+    return (
+      <div className="flex justify-center items-center w-full h-screen">
+        <div className="text-center">
+          <p className="text-xl">Đang tải dữ liệu người dùng...</p>
+          {/* Có thể thêm spinner để biểu thị quá trình tải */}
+        </div>
+      </div>
+    );
+  }
 
   if (!dataUser) {
     return (
