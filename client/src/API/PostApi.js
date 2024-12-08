@@ -36,7 +36,6 @@ export const postApi = {
     resetData,
     setOpenModal,
     setRenderHeader,
-    setUserDataZus
   ) => {
     try {
       const response = await axios.post(
@@ -49,9 +48,6 @@ export const postApi = {
       );
 
       if (response.data.status === "Success") {
-        const { dataUser } = response.data.data;
-        console.log(dataUser)
-        setUserDataZus(dataUser);
         setResetData(() => !resetData);
         setOpenModal(false);
         setRenderHeader(true);
