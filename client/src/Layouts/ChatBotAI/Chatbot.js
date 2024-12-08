@@ -51,9 +51,11 @@ const Chatbot = () => {
       getApi.getApiUser(setDataUser); // Call API to fetch user data
     }
 
-    if (dataUser && !isLoadingUser) {
+    if (dataUser && isLoadingUser) {
       setIsLoadingUser(false);
-    } else if (!dataUser && !isLoadingUser) {
+    } 
+    
+    if (!dataUser && !isLoadingUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
