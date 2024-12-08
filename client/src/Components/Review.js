@@ -174,6 +174,10 @@ const Review = ({ slug, setTotalStar, setRatingScore, setNumberOfReviews }) => {
   }, [starReview]);
 
   useEffect(() => {
+    console.log(dataUser)
+  }, [dataUser])
+
+  useEffect(() => {
     const abortRequest = getApi.getApiUser(setDataUser);
 
     return () => {
