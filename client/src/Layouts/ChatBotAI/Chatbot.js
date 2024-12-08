@@ -47,14 +47,14 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    if (!isLoadingUser && !dataUser) {
+    // Nếu dữ liệu người dùng chưa có và đang trong quá trình tải
+    if (isLoadingUser) {
+      getApi.getApiUser(setDataUser);  // Gọi API để tải dữ liệu người dùng
+    } else if (!dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
       );
-    } else {
-      getApi.getApiUser(setDataUser);
-      setIsLoadingUser(false)
     }
   }, [isLoadingUser, dataUser]);
 
