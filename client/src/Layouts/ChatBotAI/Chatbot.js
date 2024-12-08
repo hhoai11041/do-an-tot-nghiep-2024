@@ -47,18 +47,13 @@ const Chatbot = () => {
   const [dataUser, setDataUser] = useState(null);
 
   useEffect(() => {
-    // If the dataUser is already loaded, do nothing
     if (!dataUser && isLoadingUser) {
       getApi.getApiUser(setDataUser); // Call API to fetch user data
     }
-  
-    // If dataUser is loaded or login is missing, handle accordingly
+
     if (dataUser && !isLoadingUser) {
-      // User data is loaded, proceed with further logic
-      // You can now safely set isLoadingUser to false
       setIsLoadingUser(false);
     } else if (!dataUser && !isLoadingUser) {
-      // Handle case when user is not logged in
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
