@@ -28,7 +28,7 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const navigate = useNavigate();
   const [modalInfoAccount, setModalInfoAccount] = useState(false);
   const [resetData, setResetData] = useState(false);
-  const { setRenderHeader, renderApp } = useStore();
+  const { setRenderHeader } = useStore();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -38,7 +38,8 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   };
   const handleLogout = () => {
     setAnchorEl(null);
-    postApi.logoutAccount(setResetData, resetData, setRenderHeader, renderApp);
+    postApi.logoutAccount(setResetData, resetData);
+    setRenderHeader()
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
       "Thành công",

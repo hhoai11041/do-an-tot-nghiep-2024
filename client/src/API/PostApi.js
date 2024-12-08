@@ -64,7 +64,7 @@ export const postApi = {
     }
   },
 
-  logoutAccount: async (setResetData, resetData, setRenderHeader, renderApp) => {
+  logoutAccount: async (setResetData, resetData ) => {
     try {
       const response = await axios.post(
         EndpointAPI.apiLogout,
@@ -74,7 +74,6 @@ export const postApi = {
 
       if (response.data.status === 200) {
         setResetData(() => !resetData);
-        setRenderHeader(() => !renderApp);
         announce.showSuccessModal("Thành công", "Bạn đã đăng xuất thành công");
       }
     } catch (error) {
