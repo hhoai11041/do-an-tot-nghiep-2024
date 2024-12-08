@@ -44,7 +44,7 @@ const Chatbot = () => {
   const [newConversation, setNewConversation] = useState(1);
   const [textInputChat, setTextInputChat] = useState("");
   const messagesEndRef = useRef(null);
-  const [dataUser, setDataUser] = useState(null);
+  const [dataUser, setDataUser] = useState();
 
   useEffect(() => {
     getApi.getApiUser(setDataUser);
