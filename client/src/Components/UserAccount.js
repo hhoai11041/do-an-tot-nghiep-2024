@@ -21,7 +21,7 @@ import ProfileAccount from "./ProfileAccount";
 import { postApi } from "../API/PostApi";
 import useStore from "../Zustand/store";
 
-const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
+const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
   const [modalSignIn, setModalSignIn] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -39,6 +39,7 @@ const UserAccount = ({ dataUser, setRenderUI, renderUI }) => {
   const handleLogout = () => {
     setAnchorEl(null);
     postApi.logoutAccount(setResetData, resetData, setRenderHeader);
+    setDataUser(null)
     setRenderUI(() => !renderUI);
     announce.showSuccessModal(
       "Thành công",

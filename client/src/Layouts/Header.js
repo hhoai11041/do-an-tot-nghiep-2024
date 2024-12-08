@@ -54,7 +54,7 @@ const Header = () => {
                   <ThemeUI></ThemeUI>
                   <UserAccount
                     dataUser={dataUser}
-                    // setDataUser={setDataUser}
+                    setDataUser={setDataUser}
                     setRenderUI={setRenderUI}
                     renderUI={renderUI}
                   ></UserAccount>
