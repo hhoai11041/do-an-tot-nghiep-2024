@@ -22,12 +22,7 @@ const TravelItinerary_AI = () => {
   const [dataUser, setDataUser] = useState();
 
   useEffect(() => {
-    const fetchUser = async () => {
-      setLoading(true);
-      getApi.getApiUser(setDataUser);
-      setLoading(false);
-    };
-    fetchUser();
+    getApi.getApiUser(setDataUser);
   }, []);
 
   const dataProvince = useMemo(
@@ -186,13 +181,13 @@ const TravelItinerary_AI = () => {
   };
 
   useEffect(() => {
-    if (!loading && !dataUser) {
+    if (!dataUser) {
       announce.showErrorModal(
         "Đăng nhập",
         "Vui lòng đăng nhập tài khoản để sử dụng tính năng này"
       );
     }
-  }, [dataUser, loading]);
+  }, [dataUser]);
 
   return (
     <motion.div

@@ -22,9 +22,9 @@ const TravelItinerary = () => {
 
   useEffect(() => {
     const fetchUser = async () => {
-      setLoading(true);
-      getApi.getApiUser(setDataUser);
-      setLoading(false);
+      setLoading(true); // Đánh dấu bắt đầu tải dữ liệu
+      await getApi.getApiUser(setDataUser);
+      setLoading(false); // Đánh dấu kết thúc tải dữ liệu
     };
     fetchUser();
   }, []);
