@@ -40,7 +40,7 @@ const UserAccount = ({ dataUser, setDataUser, setRenderUI, renderUI }) => {
     setAnchorEl(null);
     postApi.logoutAccount(setResetData, resetData, setRenderHeader);
     setDataUser(null);
-    setRenderUI(() => !renderUI);
+    // setRenderUI(() => !renderUI);
     announce.showSuccessModal(
       "Thành công",
       "Bạn đã đăng xuất tài khoản thành công"
