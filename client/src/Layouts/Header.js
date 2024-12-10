@@ -34,7 +34,7 @@ const Header = () => {
       });
   
     return () => abort();
-  }, [renderApp]);
+  }, [renderApp, renderUI]);
 
   return (
     <div>
