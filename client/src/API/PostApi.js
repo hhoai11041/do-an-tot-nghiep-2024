@@ -74,7 +74,7 @@ export const postApi = {
 
       if (response.data.status === 200) {
         setResetData(() => !resetData);
-        setRenderHeader(true)
+        setRenderHeader(false)
       }
     } catch (error) {
       console.error("Logout error:", error);
