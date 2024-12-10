@@ -54,7 +54,7 @@ const Destination = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div>
           <div className="relative screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] screenLarge:h-[60vh] desktop:h-[60vh] laptop:h-[60vh] tablet:h-[40vh] mobile:h-[50vh] ">

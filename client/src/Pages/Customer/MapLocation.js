@@ -305,7 +305,7 @@ const MapLocation = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div className="screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] h-[100vh] w-[100%] relative flex items-center justify-center">
           <div>

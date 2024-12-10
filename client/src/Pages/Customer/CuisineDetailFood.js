@@ -24,7 +24,7 @@ const CuisineDetailFood = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div className="screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] screenLarge:mt-[130px] desktop:pt-[20px] desktop:mt-[130px] laptop:pt-[20px] laptop:mt-[130px] tablet:pt-[20px] tablet:mt-[130px] screenLarge:pt-[20px] w-screenWidth mx-auto mb-[100px] mobile:mt-[170px]">
           {loading ? (

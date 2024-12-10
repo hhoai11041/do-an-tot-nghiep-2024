@@ -23,7 +23,7 @@ const NewsDetail = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div className="screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] pt-[20px] screenLarge:w-[60%] desktop:w-[60%] laptop:w-[60%] tablet:w-[90%] mobile:w-[95%] mx-auto newsDetail mb-10 ">
           {loading ? (

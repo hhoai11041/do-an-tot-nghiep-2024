@@ -15,7 +15,7 @@ const Hotel = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header></Header>
+        {/* <Header></Header> */}
         <NavTravel></NavTravel>
         <div className="w-full relative screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px]">
           <img

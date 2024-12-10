@@ -67,7 +67,7 @@ const CuisineAll = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div className="screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] pt-[20px] mb-6 screenLarge:flex desktop:flex laptop:flex gap-4">
           <div className="dark:border-gray-700 dark:border screenLarge:w-[25%] desktop:w-[25%] laptop:w-[25%] tablet:w-full screenLarge:h-[65vh] desktop:h-[65vh] laptop:h-[65vh] screenLarge:sticky desktop:sticky laptop:sticky top-[150px] rounded-lg p-4 border shadow-lg mb-6">

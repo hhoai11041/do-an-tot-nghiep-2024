@@ -63,7 +63,7 @@ const Cuisine = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div>
           <BannerCuisine />

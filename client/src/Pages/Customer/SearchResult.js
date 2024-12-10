@@ -69,7 +69,7 @@ const SearchResult = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div className="screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto screenLarge:mt-[130xp] laptop:mt-[130px] desktop:mt-[130px] mobile:mt-[150px] tablet:mt-[130px] pt-[20px] mb-6">
           <div className="screenLarge:flex desktop:flex laptop:flex gap-4">

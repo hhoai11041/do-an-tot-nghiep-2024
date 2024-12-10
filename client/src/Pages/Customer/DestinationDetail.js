@@ -101,7 +101,7 @@ const DestinationDetail = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         <div className="mt-[130px] pt-[20px] screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto mb-10">
           <h2 className="text-center text-2xl text-textPrimary font-bold mt-4">

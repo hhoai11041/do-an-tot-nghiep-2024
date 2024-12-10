@@ -219,7 +219,7 @@ if (isLoadingUser) {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header />
+        {/* <Header /> */}
         <NavTravel />
         {dataUser ? (
           <div className="screenLarge:mt-[130px] desktop:mt-[130px] laptop:mt-[130px] tablet:mt-[130px] mobile:mt-[150px] pt-[20px] screenLarge:mb-10 desktop:mb-10 laptop:mb-10 screenLarge:w-[80%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto tablet:mb-[200px] mobile:mb-[150px]">

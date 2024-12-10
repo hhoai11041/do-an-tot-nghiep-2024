@@ -13,7 +13,7 @@ const Introduce = () => {
       transition={{ duration: 1 }}
     >
       <div>
-        <Header></Header>
+        {/* <Header></Header> */}
         <NavTravel></NavTravel>
         {/* banner introduce  */}
         <div className="w-full relative mt-[130px] screenLarge:mt-[80px] desktop:mt-[80px] laptop:mt-[80px] mobile:mt-[150px]">
