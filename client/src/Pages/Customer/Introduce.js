@@ -89,7 +89,7 @@ const Introduce = () => {
             <h1 className="screenLarge:text-4xl desktop:text-4xl laptop:text-4xl tablet:text-2xl mobile:text-xl text-orange-600 font-semibold mb-8">
               Cam kết
             </h1>
-            <div className="screenLarge:w-[85%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto gap-4 grid screenLarge:grid-cols-3 default:grid-cols-3 laptop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1">
+            <div className="screenLarge:w-[85%] desktop:w-screenWidth laptop:w-[90%] tablet:w-[95%] mobile:w-[95%] mx-auto gap-4 grid screenLarge:grid-cols-3 desktop:grid-cols-3 default:grid-cols-3 laptop:grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1">
               <div className="flex justify-center items-center flex-col">
                 <img
                   src="https://res.klook.com/image/upload/q_85/f_auto/v1654513444/ued/platform/illustration_joy_of_discovery_xxxxxl.png"
