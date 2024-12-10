@@ -297,7 +297,7 @@ input[type="password"]::-ms-reveal {
   margin-left: 24px;
 }
 
-.travel_itinerary p,
+/* .travel_itinerary p,
 li {
   margin-left: 64px;
   line-height: 2.3;
@@ -306,7 +306,7 @@ li {
 .addTravelItinerary p,
 li {
   margin-left: 64px;
-}
+} */
 
 .css-wjh20t-MuiPagination-ul li {
   margin-left: 0px !important;
