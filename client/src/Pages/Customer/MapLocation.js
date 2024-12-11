@@ -447,7 +447,7 @@ const MapLocation = () => {
 
                   <button
                     onClick={handleClosePopup}
-                    className="text-red-500 font-bold px-2 py-1 rounded hover:bg-gray-200"
+                    className="text-red-500 font-bold px-2 py-1 rounded hover:bg-gray-200 absolute top-0 right-0"
                   >
                     X
                   </button>
