@@ -25,7 +25,7 @@ const NavAdmin = () => {
     setOpen(!open);
   };
   return (
-    <div className="screenLarge:w-[17%] desktop:w-[20%] laptop:w-[20%] bg-slate-800 dark:bg-bgThemeUI absolute top-0 bottom-0 z-20 shadow-lg">
+    <div className="screenLarge:w-[17%] desktop:w-[20%] laptop:w-[20%] bg-slate-800 dark:bg-bgThemeUI absolute top-0 bottom-0 z-50 shadow-lg">
       <div className="flex items-center justify-center mx-auto dark:border-gray-400  h-[80px] w-[100%] border-b-[1px] mb-4">
         <Logo className="h-[130px] w-[130px]"></Logo>
       </div>

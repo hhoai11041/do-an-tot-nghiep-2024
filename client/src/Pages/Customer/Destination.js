@@ -67,7 +67,7 @@ const Destination = () => {
             <div className="absolute top-[40%] left-1/2 translate-x-[-50%] translate-y-[-40%] screenLarge:w-[70%] desktop:w-[70%] laptop:w-[70%] tablet:w-[90%] mobile:w-[95%]">
               <div className="flex items-center justify-center gap-3">
                 <h1 className="screenLarge:text-4xl desktop:text-4xl laptop:text-4xl tablet:text-3xl mobile:text-xl font-bold text-white">
-                  Du lịch & Trải nghiệm Test
+                  Du lịch & Trải nghiệm
                 </h1>
               </div>
 
