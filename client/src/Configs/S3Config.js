@@ -18,10 +18,8 @@ const uploadFilesToS3 = async (files, folderName = "") => {
   }
 
   try {
-    // Tạo các promises để upload các tệp lên S3
     const uploadPromises = files.map(async (file) => {
       try {
-        // Sử dụng folderName làm phần đầu của Key để phân loại tệp theo thư mục
         const bucketName = "doantotnghiep-2024";
         const region = "ap-southeast-2";
         const key = `${folderName}/${file.name}`;
@@ -34,11 +32,10 @@ const uploadFilesToS3 = async (files, folderName = "") => {
             "Content-Type": file.type,
             Referer: "https://vietnamtrip.online",
           },
-          credentials: 'omit',
         });
 
         if (!response.ok) {
-          const errorText = await response.text(); // Đọc chi tiết lỗi từ response
+          const errorText = await response.text(); 
           throw new Error(`Failed to upload file ${file.name}: ${errorText}`);
       }
 
@@ -50,10 +47,9 @@ const uploadFilesToS3 = async (files, folderName = "") => {
       }
     });
 
-    // Chờ tất cả các tệp upload và lọc bỏ các giá trị null (nếu có lỗi)
     const uploadedUrls = (await Promise.all(uploadPromises)).filter(Boolean);
 
-    return uploadedUrls; // Trả về danh sách các URL của tệp đã upload
+    return uploadedUrls; 
   } catch (error) {
     console.error("Error uploading files to S3:", error);
     toast.error("Lỗi khi tải lên hình ảnh");
