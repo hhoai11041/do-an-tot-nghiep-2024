@@ -32,7 +32,6 @@ const uploadFilesToS3 = async (files, folderName = "") => {
           body: file,
           headers: {
             "Content-Type": file.type,
-            "x-amz-acl": "public-read",
             Referer: "https://vietnamtrip.online",
           },
         });
