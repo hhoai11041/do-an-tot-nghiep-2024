@@ -96,9 +96,9 @@ const ListHotel = () => {
     },
     {
       accessorKey: "reviewText",
-      header: "Đánh giá",
+      header: "Lượt đánh giá",
       size: 50,
-      Cell: ({ row }) => <div>{row.original.reviewText}</div>,
+      Cell: ({ row }) => <div>{row.original.numberOfRevivew}</div>,
     },
 
     {
