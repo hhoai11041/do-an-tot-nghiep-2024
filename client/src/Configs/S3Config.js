@@ -38,8 +38,9 @@ const uploadFilesToS3 = async (files, folderName = "") => {
         });
 
         if (!response.ok) {
-          throw new Error(`Failed to upload file ${file.name}`);
-        }
+          const errorText = await response.text(); // Đọc chi tiết lỗi từ response
+          throw new Error(`Failed to upload file ${file.name}: ${errorText}`);
+      }
 
         return url; 
       } catch (error) {
