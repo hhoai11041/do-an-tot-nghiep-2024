@@ -18,36 +18,28 @@ const uploadFilesToS3 = async (files, folderName = "") => {
   }
 
   try {
-    // Khởi tạo cấu hình AWS S3
-    AWS.config.update({
-      region: "ap-southeast-2",
-      credentials: new AWS.Credentials({
-        accessKeyId: "AKIATCKATFVRI567AFY4",
-        secretAccessKey: "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",
-      }),
-    });
-
-    const s3 = new AWS.S3();
-
     // Tạo các promises để upload các tệp lên S3
     const uploadPromises = files.map(async (file) => {
       try {
         // Sử dụng folderName làm phần đầu của Key để phân loại tệp theo thư mục
+        const bucketName = "doantotnghiep-2024";
+        const region = "ap-southeast-2";
         const key = `${folderName}/${file.name}`;
+        const url = `https://${bucketName}.s3.${region}.amazonaws.com/${key}`;
 
-        const params = {
-          Bucket: "doantotnghiep-2024",
-          Key: key,
-          Body: file,
-          ContentType: file.type,
-        };
+        const response = await fetch(url, {
+          method: "PUT",
+          body: file,
+          headers: {
+            "Content-Type": file.type,
+          },
+        });
 
-        // Upload tệp lên S3
-        const uploadResult = await s3.upload(params).promise();
-        // console.log("File uploaded successfully:", uploadResult.Location);
+        if (!response.ok) {
+          throw new Error(`Failed to upload file ${file.name}`);
+        }
 
-        // Trả về URL của tệp đã upload
-        return uploadResult.Location;
+        return url; 
       } catch (error) {
         console.error(`Error uploading file ${file.name}:`, error);
         toast.error(`Không thể upload file ${file.name}`);
