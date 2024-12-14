@@ -32,7 +32,7 @@ const uploadFilesToS3 = async (files, folderName = "") => {
           body: file,
           headers: {
             "Content-Type": file.type,
-            Referer: "https://vietnamtrip.online",
+            "Referer": "https://vietnamtrip.online",
           },
         });
 
